@@ -1,0 +1,9 @@
+USE campus_market;
+
+CREATE TABLE IF NOT EXISTS product_tags (
+    id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    product_id BIGINT UNSIGNED NOT NULL,
+    tag_name VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
+); 

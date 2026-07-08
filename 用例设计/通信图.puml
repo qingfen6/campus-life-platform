@@ -1,0 +1,855 @@
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+title 校园社交平台通信图
+
+' 1. 用户登录验证
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "用户" as User
+participant "登录界面" as LoginUI
+participant "用户控制器" as UserController
+participant "用户服务" as UserService
+database "用户数据库" as UserDB
+
+title 用户登录验证
+
+User -> LoginUI: 输入用户名和密码
+LoginUI -> UserController: 提交登录请求
+UserController -> UserService: 验证用户信息
+UserService -> UserDB: 查询用户数据
+UserDB --> UserService: 返回用户信息
+UserService --> UserController: 返回验证结果
+UserController --> LoginUI: 返回登录状态
+LoginUI --> User: 显示登录结果
+@enduml
+
+' 2. 发布动态
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "学生" as Student
+participant "动态界面" as PostView
+participant "媒体上传界面" as MediaView
+participant "动态控制器" as PostController
+participant "认证控制器" as AuthController
+participant "媒体控制器" as MediaController
+entity "动态实体" as Post
+entity "媒体实体" as Media
+entity "用户实体" as User
+
+title 发布动态
+
+Student -> PostView: 点击"发布动态"按钮
+PostView -> AuthController: 验证学校认证状态
+AuthController -> User: 获取用户认证信息
+User --> AuthController: 返回认证状态
+
+alt 未完成认证
+    AuthController --> PostView: 返回认证失败
+    PostView --> Student: 提示"请先完成学校身份认证"
+    Student -> PostView: 前往认证页面
+else 已完成认证
+    AuthController --> PostView: 返回认证成功
+    PostView --> Student: 显示发布表单
+    
+    Student -> PostView: 填写动态内容
+    Student -> PostView: 选择可见范围
+    
+    alt 包含媒体文件
+        Student -> PostView: 选择上传媒体
+        PostView -> MediaView: 打开媒体上传界面
+        Student -> MediaView: 上传图片/视频
+        MediaView -> MediaController: 处理媒体上传
+        MediaController -> Media: 创建媒体记录
+        Media --> MediaController: 返回媒体ID和URL
+        MediaController --> MediaView: 返回上传结果
+        MediaView --> PostView: 返回媒体信息
+    end
+    
+    Student -> PostView: 点击"发布"按钮
+    PostView -> PostController: 提交动态内容和媒体信息
+    
+    PostController -> Post: 创建动态记录
+    Post --> PostController: 返回创建结果
+    
+    alt 包含媒体
+        PostController -> Media: 关联媒体到动态
+        Media --> PostController: 返回关联结果
+    end
+    
+    PostController --> PostView: 返回发布结果
+    PostView --> Student: 显示发布成功提示
+end
+@enduml
+
+' 3. 发布商品
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "学生" as Student
+participant "商品界面" as ProductView
+participant "媒体上传界面" as MediaView
+participant "商品控制器" as ProductController
+participant "认证控制器" as AuthController
+participant "媒体控制器" as MediaController
+entity "商品实体" as Product
+entity "商品图片实体" as ProductImage
+entity "用户实体" as User
+
+title 发布商品
+
+Student -> ProductView: 点击"发布商品"按钮
+ProductView -> AuthController: 验证学校认证状态
+AuthController -> User: 获取用户认证信息
+User --> AuthController: 返回认证状态
+
+alt 未完成认证
+    AuthController --> ProductView: 返回认证失败
+    ProductView --> Student: 提示"请先完成学校身份认证"
+    Student -> ProductView: 前往认证页面
+else 已完成认证
+    AuthController --> ProductView: 返回认证成功
+    ProductView --> Student: 显示商品发布表单
+    
+    Student -> ProductView: 填写商品信息(名称、描述、价格等)
+    Student -> ProductView: 选择商品分类
+    
+    Student -> ProductView: 选择上传商品图片
+    ProductView -> MediaView: 打开图片上传界面
+    Student -> MediaView: 上传商品图片
+    MediaView -> MediaController: 处理图片上传
+    MediaController -> ProductImage: 创建图片记录
+    ProductImage --> MediaController: 返回图片ID和URL
+    MediaController --> MediaView: 返回上传结果
+    MediaView --> ProductView: 返回图片信息
+    
+    Student -> ProductView: 设置交易位置和方式
+    Student -> ProductView: 点击"发布"按钮
+    ProductView -> ProductController: 提交商品信息和图片
+    
+    ProductController -> Product: 创建商品记录
+    Product --> ProductController: 返回创建结果
+    
+    ProductController -> ProductImage: 关联图片到商品
+    ProductImage --> ProductController: 返回关联结果
+    
+    ProductController --> ProductView: 返回发布结果
+    ProductView --> Student: 显示发布成功提示
+end
+@enduml
+
+' 4. 发布悬赏
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "学生" as Student
+participant "悬赏界面" as MissionView
+participant "悬赏控制器" as MissionController
+participant "认证控制器" as AuthController
+participant "支付控制器" as PaymentController
+entity "悬赏实体" as Mission
+entity "用户实体" as User
+entity "账户实体" as Account
+entity "交易实体" as Transaction
+
+title 发布悬赏
+
+Student -> MissionView: 点击"发布悬赏"按钮
+MissionView -> AuthController: 验证学校认证状态
+AuthController -> User: 获取用户认证信息
+User --> AuthController: 返回认证状态
+
+alt 未完成认证
+    AuthController --> MissionView: 返回认证失败
+    MissionView --> Student: 提示"请先完成学校身份认证"
+    Student -> MissionView: 前往认证页面
+else 已完成认证
+    AuthController --> MissionView: 返回认证成功
+    MissionView --> Student: 显示悬赏发布表单
+    
+    Student -> MissionView: 填写任务标题和详细描述
+    Student -> MissionView: 输入悬赏金额
+    Student -> MissionView: 设置截止时间
+    Student -> MissionView: 选择任务类别和难度
+    Student -> MissionView: 点击"发布"按钮
+    
+    MissionView -> PaymentController: 验证账户余额
+    PaymentController -> Account: 获取用户账户信息
+    Account --> PaymentController: 返回账户余额
+    
+    alt 余额不足
+        PaymentController --> MissionView: 返回余额不足
+        MissionView --> Student: 提示"余额不足"
+        Student -> MissionView: 选择充值或调整金额
+    else 余额充足
+        PaymentController --> MissionView: 返回余额充足
+        MissionView -> MissionController: 提交悬赏信息
+        
+        MissionController -> Mission: 创建悬赏任务
+        Mission --> MissionController: 返回创建结果
+        
+        MissionController -> PaymentController: 请求冻结悬赏金额
+        PaymentController -> Transaction: 创建冻结交易
+        Transaction --> PaymentController: 返回交易结果
+        PaymentController -> Account: 更新账户余额(冻结金额)
+        Account --> PaymentController: 返回更新结果
+        PaymentController --> MissionController: 返回冻结结果
+        
+        MissionController --> MissionView: 返回发布结果
+        MissionView --> Student: 显示发布成功提示
+    end
+end
+@enduml
+
+' 5. 购买商品
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "买家" as Buyer
+participant "商品详情界面" as ProductDetailView
+participant "订单界面" as OrderView
+participant "商品控制器" as ProductController
+participant "订单控制器" as OrderController
+participant "支付控制器" as PaymentController
+participant "通知控制器" as NotificationController
+entity "商品实体" as Product
+entity "订单实体" as Order
+entity "账户实体" as Account
+entity "交易实体" as Transaction
+entity "用户实体" as User
+actor "卖家" as Seller
+
+title 购买商品
+
+Buyer -> ProductDetailView: 浏览商品详情
+ProductDetailView -> ProductController: 获取商品信息
+ProductController -> Product: 查询商品
+Product --> ProductController: 返回商品信息
+ProductController --> ProductDetailView: 显示商品详情
+
+Buyer -> ProductDetailView: 点击"购买"按钮
+ProductDetailView -> ProductController: 检查商品状态
+ProductController -> Product: 查询商品状态
+Product --> ProductController: 返回商品状态
+
+alt 商品已售出
+    ProductController --> ProductDetailView: 返回已售出状态
+    ProductDetailView --> Buyer: 提示"商品已售出"
+else 商品可购买
+    ProductController --> ProductDetailView: 返回可购买状态
+    ProductDetailView -> OrderView: 跳转到订单页面
+    
+    OrderView --> Buyer: 显示订单表单
+    Buyer -> OrderView: 填写交易信息
+    Buyer -> OrderView: 确认订单
+    
+    OrderView -> PaymentController: 验证账户余额
+    PaymentController -> Account: 获取买家账户信息
+    Account --> PaymentController: 返回账户余额
+    
+    alt 余额不足
+        PaymentController --> OrderView: 返回余额不足
+        OrderView --> Buyer: 提示"余额不足"
+        Buyer -> OrderView: 选择充值或取消
+    else 余额充足
+        PaymentController --> OrderView: 返回余额充足
+        OrderView -> OrderController: 提交订单信息
+        
+        OrderController -> Order: 创建订单记录
+        Order --> OrderController: 返回创建结果
+        
+        OrderController -> ProductController: 更新商品状态
+        ProductController -> Product: 标记商品为预订
+        Product --> ProductController: 返回更新结果
+        ProductController --> OrderController: 返回更新结果
+        
+        OrderController -> PaymentController: 请求冻结支付金额
+        PaymentController -> Transaction: 创建冻结交易
+        Transaction --> PaymentController: 返回交易结果
+        PaymentController -> Account: 更新买家账户余额
+        Account --> PaymentController: 返回更新结果
+        PaymentController --> OrderController: 返回冻结结果
+        
+        OrderController -> NotificationController: 通知卖家新订单
+        NotificationController -> User: 创建卖家通知
+        User --> NotificationController: 返回创建结果
+        NotificationController --> Seller: 发送新订单通知
+        
+        OrderController --> OrderView: 返回订单创建结果
+        OrderView --> Buyer: 显示订单成功创建提示
+    end
+end
+@enduml
+
+' 6. 接取悬赏
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "接单者" as Taker
+participant "悬赏详情界面" as MissionDetailView
+participant "接单申请界面" as ApplyView
+participant "悬赏控制器" as MissionController
+participant "接单控制器" as ApplyController
+participant "通知控制器" as NotificationController
+entity "悬赏实体" as Mission
+entity "悬赏接单实体" as MissionApply
+entity "用户实体" as User
+actor "发布者" as Publisher
+
+title 接取悬赏
+
+Taker -> MissionDetailView: 浏览悬赏任务
+MissionDetailView -> MissionController: 获取悬赏信息
+MissionController -> Mission: 查询悬赏任务
+Mission --> MissionController: 返回悬赏信息
+MissionController --> MissionDetailView: 显示悬赏详情
+
+Taker -> MissionDetailView: 点击"接取"按钮
+MissionDetailView -> MissionController: 检查任务状态
+MissionController -> Mission: 查询任务状态
+Mission --> MissionController: 返回任务状态
+
+alt 任务已关闭
+    MissionController --> MissionDetailView: 返回已关闭状态
+    MissionDetailView --> Taker: 提示"任务已不可接取"
+else 任务可接取
+    MissionController --> MissionDetailView: 返回可接取状态
+    MissionDetailView -> ApplyView: 跳转到接单申请页面
+    
+    ApplyView --> Taker: 显示接单申请表单
+    Taker -> ApplyView: 填写接单申请说明
+    Taker -> ApplyView: 确认接单
+    
+    ApplyView -> ApplyController: 提交接单申请
+    ApplyController -> MissionApply: 创建接单申请
+    MissionApply --> ApplyController: 返回创建结果
+    
+    ApplyController -> NotificationController: 通知发布者新接单
+    NotificationController -> User: 创建发布者通知
+    User --> NotificationController: 返回创建结果
+    NotificationController --> Publisher: 发送新接单通知
+    
+    ApplyController --> ApplyView: 返回申请提交结果
+    ApplyView --> Taker: 显示申请提交成功提示
+    
+    alt 发布者审核接单
+        Publisher -> NotificationController: 查看通知
+        NotificationController -> MissionController: 获取接单详情
+        MissionController -> MissionApply: 查询申请详情
+        MissionApply --> MissionController: 返回申请信息
+        MissionController --> Publisher: 显示申请详情
+        
+        alt 发布者拒绝
+            Publisher -> MissionController: 拒绝接单
+            MissionController -> MissionApply: 更新申请状态为拒绝
+            MissionApply --> MissionController: 返回更新结果
+            MissionController -> NotificationController: 通知接单者被拒绝
+            NotificationController -> User: 创建接单者通知
+            User --> NotificationController: 返回创建结果
+            NotificationController --> Taker: 发送申请被拒通知
+        else 发布者接受
+            Publisher -> MissionController: 接受接单
+            MissionController -> MissionApply: 更新申请状态为接受
+            MissionApply --> MissionController: 返回更新结果
+            MissionController -> Mission: 更新任务状态为进行中
+            Mission --> MissionController: 返回更新结果
+            MissionController -> NotificationController: 通知接单者申请通过
+            NotificationController -> User: 创建接单者通知
+            User --> NotificationController: 返回创建结果
+            NotificationController --> Taker: 发送申请通过通知
+        end
+    end
+end
+@enduml
+
+' 7. 发布社团公告
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "社团管理人" as Manager
+participant "社团界面" as ClubView
+participant "公告发布界面" as AnnouncementView
+participant "媒体上传界面" as MediaView
+participant "社团控制器" as ClubController
+participant "公告控制器" as AnnouncementController
+participant "媒体控制器" as MediaController
+participant "通知控制器" as NotificationController
+entity "社团实体" as Club
+entity "公告实体" as Announcement
+entity "媒体实体" as Media
+entity "用户实体" as User
+entity "社团成员实体" as ClubMember
+
+title 发布社团公告
+
+Manager -> ClubView: 进入社团管理页面
+ClubView -> ClubController: 获取社团信息
+ClubController -> Club: 查询社团
+Club --> ClubController: 返回社团信息
+ClubController --> ClubView: 显示社团管理界面
+
+Manager -> ClubView: 点击"发布公告"按钮
+ClubView -> AnnouncementView: 跳转到公告发布页面
+AnnouncementView --> Manager: 显示公告发布表单
+
+Manager -> AnnouncementView: 填写公告标题
+Manager -> AnnouncementView: 填写公告内容
+
+alt 包含媒体文件
+    Manager -> AnnouncementView: 选择上传媒体
+    AnnouncementView -> MediaView: 打开媒体上传界面
+    Manager -> MediaView: 上传图片/视频
+    MediaView -> MediaController: 处理媒体上传
+    MediaController -> Media: 创建媒体记录
+    Media --> MediaController: 返回媒体ID和URL
+    MediaController --> MediaView: 返回上传结果
+    MediaView --> AnnouncementView: 返回媒体信息
+end
+
+Manager -> AnnouncementView: 选择可见范围(全校/仅社团成员)
+Manager -> AnnouncementView: 点击"发布"按钮
+
+AnnouncementView -> AnnouncementController: 提交公告信息
+AnnouncementController -> ClubController: 验证发布权限
+ClubController -> ClubMember: 检查管理员权限
+ClubMember --> ClubController: 返回权限验证结果
+
+alt 权限验证失败
+    ClubController --> AnnouncementController: 返回权限不足
+    AnnouncementController --> AnnouncementView: 返回发布失败
+    AnnouncementView --> Manager: 提示"权限不足"
+else 权限验证成功
+    ClubController --> AnnouncementController: 返回权限验证通过
+    AnnouncementController -> Announcement: 创建公告记录
+    Announcement --> AnnouncementController: 返回创建结果
+    
+    alt 包含媒体
+        AnnouncementController -> Media: 关联媒体到公告
+        Media --> AnnouncementController: 返回关联结果
+    end
+    
+    AnnouncementController -> NotificationController: 通知相关用户
+    
+    alt 面向全校可见
+        NotificationController -> User: 获取相关用户列表
+        User --> NotificationController: 返回用户列表
+    else 仅社团成员可见
+        NotificationController -> ClubMember: 获取社团成员列表
+        ClubMember --> NotificationController: 返回成员列表
+    end
+    
+    NotificationController -> User: 创建通知记录
+    User --> NotificationController: 返回创建结果
+    NotificationController --> AnnouncementController: 返回通知发送结果
+    
+    AnnouncementController --> AnnouncementView: 返回发布结果
+    AnnouncementView --> Manager: 显示发布成功提示
+end
+@enduml
+
+' 8. 审核加入校园人员
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "学校管理员" as SchoolAdmin
+participant "学校管理界面" as SchoolView
+participant "用户审核界面" as UserReviewView
+participant "申请详情界面" as DetailView
+participant "学校控制器" as SchoolController
+participant "认证控制器" as AuthController
+participant "用户控制器" as UserController
+participant "通知控制器" as NotificationController
+entity "学校实体" as School
+entity "用户实体" as User
+entity "认证申请实体" as VerificationRequest
+entity "认证文档实体" as VerificationDocument
+actor "申请者" as Applicant
+
+title 审核加入校园人员
+
+SchoolAdmin -> SchoolView: 进入学校管理页面
+SchoolView -> SchoolController: 获取学校信息
+SchoolController -> School: 查询学校
+School --> SchoolController: 返回学校信息
+SchoolController --> SchoolView: 显示学校管理界面
+
+SchoolAdmin -> SchoolView: 点击"用户审核"按钮
+SchoolView -> UserReviewView: 跳转到用户审核页面
+
+UserReviewView -> AuthController: 获取待审核用户列表
+AuthController -> VerificationRequest: 查询待审核申请
+VerificationRequest --> AuthController: 返回申请列表
+AuthController --> UserReviewView: 显示待审核列表
+
+SchoolAdmin -> UserReviewView: 选择查看申请详情
+UserReviewView -> DetailView: 打开申请详情页面
+
+DetailView -> AuthController: 获取申请详细信息
+AuthController -> VerificationRequest: 查询申请信息
+VerificationRequest --> AuthController: 返回申请信息
+AuthController -> VerificationDocument: 获取证明材料
+VerificationDocument --> AuthController: 返回证明材料
+AuthController -> UserController: 获取申请者基本信息
+UserController -> User: 查询用户信息
+User --> UserController: 返回用户信息
+UserController --> AuthController: 返回用户信息
+AuthController --> DetailView: 返回完整申请信息
+DetailView --> SchoolAdmin: 显示申请详情和证明材料
+
+alt 材料不完整
+    SchoolAdmin -> DetailView: 点击"请求补充材料"
+    DetailView -> AuthController: 提交补充材料请求
+    AuthController -> VerificationRequest: 更新申请状态为"需补充"
+    VerificationRequest --> AuthController: 返回更新结果
+    AuthController -> NotificationController: 通知申请者补充材料
+    NotificationController -> User: 创建通知记录
+    User --> NotificationController: 返回创建结果
+    NotificationController --> Applicant: 发送补充材料通知
+    
+    Applicant -> NotificationController: 提交补充材料
+    NotificationController -> AuthController: 转发补充材料
+    AuthController -> VerificationDocument: 更新证明材料
+    VerificationDocument --> AuthController: 返回更新结果
+    AuthController -> VerificationRequest: 更新申请状态为"待审核"
+    VerificationRequest --> AuthController: 返回更新结果
+    AuthController --> DetailView: 通知材料已更新
+    DetailView --> SchoolAdmin: 显示更新后的材料
+end
+
+SchoolAdmin -> DetailView: 验证申请信息
+DetailView -> SchoolController: 校验学生信息
+SchoolController -> School: 查询校内学生数据库
+School --> SchoolController: 返回验证结果
+SchoolController --> DetailView: 返回验证结果
+
+alt 验证失败
+    DetailView --> SchoolAdmin: 显示验证失败原因
+    SchoolAdmin -> DetailView: 点击"拒绝"
+    DetailView -> AuthController: 提交拒绝决定
+    AuthController -> VerificationRequest: 更新申请状态为"拒绝"
+    VerificationRequest --> AuthController: 返回更新结果
+    AuthController -> NotificationController: 通知申请者被拒绝
+    NotificationController -> User: 创建通知记录
+    User --> NotificationController: 返回创建结果
+    NotificationController --> Applicant: 发送拒绝通知
+else 验证通过
+    DetailView --> SchoolAdmin: 显示验证通过
+    SchoolAdmin -> DetailView: 点击"通过"
+    DetailView -> AuthController: 提交通过决定
+    AuthController -> VerificationRequest: 更新申请状态为"通过"
+    VerificationRequest --> AuthController: 返回更新结果
+    AuthController -> UserController: 更新用户学校认证状态
+    UserController -> User: 更新用户状态为"已认证"
+    User --> UserController: 返回更新结果
+    UserController --> AuthController: 返回用户更新结果
+    AuthController -> NotificationController: 通知申请者审核通过
+    NotificationController -> User: 创建通知记录
+    User --> NotificationController: 返回创建结果
+    NotificationController --> Applicant: 发送通过通知
+end
+
+AuthController --> DetailView: 返回处理结果
+DetailView --> SchoolAdmin: 显示处理完成提示
+@enduml
+
+' 9. 系统监控
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "系统管理员" as SA
+participant "系统监控视图" as SMV
+participant "系统控制器" as SC
+participant "监控控制器" as MC
+participant "日志控制器" as LC
+entity "系统实体" as SE
+entity "监控指标实体" as ME
+entity "日志实体" as LE
+
+title 系统监控
+
+SA -> SMV: 访问系统监控页面
+SMV -> SC: 请求系统状态
+SC -> SE: 获取系统信息
+SE --> SC: 返回系统状态
+SC --> SMV: 返回系统概览
+
+SMV -> MC: 请求性能指标
+MC -> ME: 获取监控数据
+ME --> MC: 返回性能指标
+MC --> SMV: 返回监控数据
+
+SMV -> LC: 请求系统日志
+LC -> LE: 获取日志记录
+LE --> LC: 返回日志数据
+LC --> SMV: 返回日志信息
+
+alt 发现异常
+    MC -> SC: 报告异常情况
+    SC -> SE: 更新系统状态
+    SE --> SC: 确认状态更新
+    SC --> SMV: 显示警告信息
+end
+@enduml
+
+' 10. 用户管理
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "系统管理员" as SA
+participant "用户管理视图" as UV
+participant "用户控制器" as UC
+participant "认证控制器" as AC
+participant "通知控制器" as NC
+entity "用户实体" as UE
+entity "角色实体" as RE
+entity "权限实体" as PE
+
+title 用户管理
+
+SA -> UV: 访问用户管理页面
+UV -> UC: 请求用户列表
+UC -> UE: 获取用户数据
+UE --> UC: 返回用户信息
+UC --> UV: 显示用户列表
+
+alt 修改用户角色
+    SA -> UV: 选择用户
+    UV -> UC: 请求角色信息
+    UC -> RE: 获取角色列表
+    RE --> UC: 返回角色数据
+    UC --> UV: 显示角色选项
+    SA -> UV: 选择新角色
+    UV -> UC: 更新用户角色
+    UC -> UE: 修改角色
+    UE --> UC: 确认更新
+    UC -> NC: 发送角色变更通知
+    NC --> UV: 显示更新成功
+end
+
+alt 禁用用户
+    SA -> UV: 选择禁用用户
+    UV -> UC: 请求禁用操作
+    UC -> UE: 更新用户状态
+    UE --> UC: 确认状态更新
+    UC -> AC: 撤销用户认证
+    AC --> UC: 确认撤销
+    UC -> NC: 发送禁用通知
+    NC --> UV: 显示操作成功
+end
+@enduml
+
+' 11. 系统配置
+@startuml
+!theme plain
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 12
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+    ParticipantFontName "Times New Roman"
+    ParticipantFontSize 12
+    ParticipantFontStyle bold
+}
+
+actor "系统管理员" as SA
+participant "配置视图" as CV
+participant "配置控制器" as CC
+participant "系统控制器" as SC
+participant "通知控制器" as NC
+entity "配置实体" as CE
+entity "系统实体" as SE
+
+title 系统配置
+
+SA -> CV: 访问系统配置页面
+CV -> CC: 请求当前配置
+CC -> CE: 获取配置信息
+CE --> CC: 返回配置数据
+CC --> CV: 显示配置选项
+
+alt 修改系统参数
+    SA -> CV: 修改参数值
+    CV -> CC: 提交参数更新
+    CC -> CE: 更新配置
+    CE --> CC: 确认更新
+    CC -> SC: 应用新配置
+    SC -> SE: 更新系统设置
+    SE --> SC: 确认更新
+    SC --> CV: 显示更新成功
+end
+
+alt 更新系统设置
+    SA -> CV: 修改系统设置
+    CV -> CC: 提交设置更新
+    CC -> CE: 更新设置
+    CE --> CC: 确认更新
+    CC -> SC: 应用新设置
+    SC -> SE: 更新系统状态
+    SE --> SC: 确认更新
+    SC -> NC: 发送系统更新通知
+    NC --> CV: 显示更新成功
+end
+@enduml
+
+@enduml 

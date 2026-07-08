@@ -1,0 +1,18 @@
+.highlighted-sensitive-row td {
+  background-color: #fffbe6 !important;
+}
+
+.highlighted-sensitive-row:hover td {
+  background-color: #fff1b8 !important;
+}
+
+/* 可选：在行首单元格添加emoji警告标记 */
+/* 如果您不想要这个emoji标记，可以删除以下三行 */
+.highlighted-sensitive-row td:first-child::before {
+  content: "⚠️";
+  margin-right: 8px;
+  /* color: #faad14; */ /* Ant Design 警告黄，如果 emoji 本身颜色足够则可省略 */
+}
+
+/* 可选：如果你想在行首或特定列添加一个小的警告标记（不依赖额外图标库） */
+.highlighted-sensitive-row td:first-child::before {\n  content: \"⚠️\"; /* 使用 Unicode emoji 作为简单标记 */\n  margin-right: 8px;\n  color: #faad14; /* AntD 警告黄 */\n}\n 

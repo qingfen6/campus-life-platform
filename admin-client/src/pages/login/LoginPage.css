@@ -1,0 +1,34 @@
+/* 登录页面样式 */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1890ff 0%, #0050b3 100%);
+}
+
+.login-content {
+  width: 100%;
+  max-width: 400px;
+  padding: 0 16px;
+}
+
+.login-card {
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.login-header {
+  margin-bottom: 32px;
+}
+
+/* 响应式设计 */
+@media (max-width: 576px) {
+  .login-content {
+    max-width: 100%;
+  }
+  
+  .login-card {
+    box-shadow: none;
+  }
+} 

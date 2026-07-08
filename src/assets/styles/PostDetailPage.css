@@ -1,0 +1,344 @@
+/**
+ * 动态详情页样式
+ */
+
+.post-detail-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.back-button {
+  margin-bottom: 16px;
+}
+
+.post-detail-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+/* 作者信息区域 */
+.post-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.author-info {
+  margin-left: 16px;
+}
+
+.author-info h3 {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+/* 内容区域 */
+.post-content {
+  margin-bottom: 24px;
+}
+
+.post-text {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  white-space: pre-wrap;
+}
+
+/* 媒体内容样式 */
+.post-media-container {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.post-single-image,
+.post-single-video {
+  width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+/* 改进Carousel样式 */
+.post-media-container .ant-carousel {
+  width: 100%;
+  height: 100%;
+}
+
+.post-media-container .ant-carousel .slick-slide {
+  text-align: center;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.post-media-container .ant-carousel .slick-dots {
+  bottom: 12px;
+}
+
+.post-media-container .ant-carousel .slick-dots li button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.post-media-container .ant-carousel .slick-dots li.slick-active button {
+  background: #fff;
+}
+
+.post-carousel-item {
+  width: 100%;
+  height: 500px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.post-carousel-image,
+.post-carousel-video {
+  max-width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+}
+
+/* 为Carousel添加导航箭头样式 */
+.post-media-container .ant-carousel .slick-prev,
+.post-media-container .ant-carousel .slick-next {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.post-media-container .ant-carousel .slick-prev:hover,
+.post-media-container .ant-carousel .slick-next:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 暗色模式下的样式 */
+.dark-mode .post-media-container .ant-carousel .slick-slide {
+  background: #1f1f1f;
+}
+
+.dark-mode .post-media-container .ant-carousel .slick-dots li button {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .post-media-container .ant-carousel .slick-dots li.slick-active button {
+  background: #000;
+}
+
+/* 标签样式 */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* 互动按钮 */
+.post-actions {
+  display: flex;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.post-actions button {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+}
+
+.post-actions .liked {
+  color: #1890ff;
+}
+
+/* 评论区域 */
+.post-comments {
+  margin-top: 24px;
+}
+
+/* 相关动态 */
+.related-posts-card {
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+.related-post-item {
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.related-post-item:hover {
+  background-color: #f5f5f5;
+}
+
+.related-post-image {
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.related-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.related-post-meta {
+  display: flex;
+  gap: 12px;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
+.no-related-posts {
+  text-align: center;
+  padding: 24px 0;
+  color: #8c8c8c;
+}
+
+/* 用户信息卡片 */
+.user-info-card {
+  border-radius: 8px;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.user-details {
+  margin-left: 16px;
+  flex: 1;
+}
+
+.user-details h3 {
+  margin-bottom: 8px;
+}
+
+.user-bio {
+  margin-bottom: 16px;
+  color: #595959;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.stat-item {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #262626;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+/* 错误状态 */
+.post-error {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.post-error h3 {
+  margin-bottom: 16px;
+  color: #ff4d4f;
+}
+
+.post-error p {
+  margin-bottom: 24px;
+  color: #8c8c8c;
+}
+
+/* 深色模式适配 */
+.dark-mode .post-detail-card,
+.dark-mode .related-posts-card,
+.dark-mode .user-info-card {
+  background-color: #1f1f1f;
+  border-color: #303030;
+}
+
+.dark-mode .post-single-image,
+.dark-mode .post-single-video,
+.dark-mode .post-carousel-item {
+  background-color: #141414;
+}
+
+.dark-mode .post-actions {
+  border-top-color: #303030;
+}
+
+.dark-mode .related-post-item:hover {
+  background-color: #262626;
+}
+
+.dark-mode .user-stats {
+  border-top-color: #303030;
+}
+
+.dark-mode .stat-value {
+  color: #e6e6e6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .post-detail-container {
+    padding: 0 12px;
+  }
+  
+  .post-carousel-item {
+    height: 300px;
+  }
+  
+  .post-carousel-image,
+  .post-carousel-video {
+    max-height: 300px;
+  }
+  
+  .user-stats {
+    flex-wrap: wrap;
+  }
+  
+  .user-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .user-details {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}

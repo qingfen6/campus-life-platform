@@ -1,0 +1,77 @@
+/* src/assets/styles/ProfilePage.css (New File) */
+.profile-page-content {
+    padding: 24px;
+    background-color: var(--content-bg, #f0f2f5); /* Ensure background color */
+}
+
+.profile-header-card {
+    margin-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow, 0 2px 8px rgba(0, 0, 0, 0.09));
+}
+
+.profile-header-card .ant-card-body {
+    padding-top: 32px;
+    padding-bottom: 16px;
+}
+
+.profile-stats {
+    margin-top: 24px;
+    text-align: center;
+    border-top: 1px solid var(--border-color, #f0f0f0);
+    padding-top: 16px;
+}
+
+.profile-stats > .ant-col > div {
+    color: var(--text-color-secondary);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.profile-content-card {
+     border-radius: 8px;
+     box-shadow: var(--card-shadow, 0 2px 8px rgba(0, 0, 0, 0.09));
+}
+
+.profile-content-card .ant-tabs-nav {
+   margin-bottom: 0px; /* Remove extra space below tabs */
+   padding-left: 24px;
+   padding-right: 24px;
+}
+
+.profile-content-card .ant-tabs-tab {
+   padding: 12px 0; /* Adjust tab padding */
+   font-size: 15px;
+}
+.profile-content-card .ant-tabs-tab-icon {
+    margin-right: 6px;
+}
+
+
+.profile-content-card .ant-tabs-content-holder {
+   padding: 24px; /* Add padding to tab content area */
+}
+
+/* Dark mode adjustments */
+.dark-mode .profile-page-content {
+     background-color: var(--content-bg);
+}
+
+.dark-mode .profile-header-card,
+.dark-mode .profile-content-card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.dark-mode .profile-stats {
+    border-top-color: var(--border-color);
+}
+
+.dark-mode .profile-content-card .ant-tabs-nav {
+    border-bottom-color: var(--border-color);
+}
+
+.dark-mode .profile-content-card .ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-btn,
+.dark-mode .profile-content-card .ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-icon {
+    color: var(--text-color-secondary);
+} 

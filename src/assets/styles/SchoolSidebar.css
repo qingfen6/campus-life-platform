@@ -1,0 +1,146 @@
+/**
+ * 学校侧边栏样式
+ * 
+ * 包含：
+ * - 基础样式
+ * - Logo和导航菜单样式
+ * - 学院和社团子菜单样式
+ * - 主题切换按钮样式
+ */
+
+/* 侧边栏基础样式 */
+.school-sider {
+  height: 100vh;
+  position: fixed !important; /* 确保侧边栏固定 */
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+  overflow-y: auto;
+  background-color: var(--card-bg);
+}
+
+.dark-mode .school-sider {
+  background-color: #001529 !important;
+}
+
+/* Logo容器样式 */
+.school-logo-container {
+  height: 64px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background-color: var(--primary-color);
+}
+
+.school-logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dark-mode .school-logo-container {
+  background-color: #002140;
+}
+
+/* 菜单样式 */
+.school-sider .ant-menu {
+  border-right: none !important;
+}
+
+.school-sider .ant-menu-item {
+  margin: 0 !important;
+}
+
+.dark-mode .school-sider .ant-menu {
+  background-color: #001529 !important;
+}
+
+.dark-mode .school-sider .ant-menu-item {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.dark-mode .school-sider .ant-menu-item:hover {
+  color: #fff !important;
+}
+
+.dark-mode .school-sider .ant-menu-item-selected {
+  color: #fff !important;
+  background-color: #1890ff !important;
+}
+
+/* 返回菜单项特殊样式 */
+.back-menu-item .ant-menu-title-content {
+  color: var(--primary-color) !important;
+}
+
+.dark-mode .back-menu-item .ant-menu-title-content {
+  color: #1890ff !important;
+}
+
+/* 侧边栏底部区域 */
+.school-sidebar-footer {
+  position: absolute;
+  bottom: 16px;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: inherit;
+  border-top: 1px solid var(--border-color);
+}
+
+/* 主题切换开关 */
+.school-sidebar-footer .theme-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  margin-bottom: 12px;
+}
+
+.school-sidebar-footer .dark-mode-switch {
+  margin-left: 8px;
+}
+
+/* 学校信息样式 */
+.school-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.school-avatar {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  background-color: var(--primary-color);
+}
+
+.school-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.dark-mode .school-name {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .school-sider {
+    position: fixed !important;
+    height: 100%;
+  }
+} 

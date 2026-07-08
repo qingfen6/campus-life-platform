@@ -1,0 +1,94 @@
+/* src/assets/styles/MockPaymentPage.css */
+.mock-payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top in case content is long */
+    padding: 24px;
+    min-height: calc(100vh - 64px); /* Assuming header height is 64px */
+    background-color: #f0f2f5; /* Light background for the page */
+}
+
+.payment-card-container {
+    width: 100%;
+    max-width: 500px; /* Adjust as needed */
+    position: relative; /* For back button positioning */
+    margin-top: 20px; /* Add some margin from top if no global header on this page */
+}
+
+.payment-card .ant-card-head-title {
+    text-align: center;
+    font-size: 1.5em; /* Larger title */
+}
+
+.payment-card .ant-descriptions-item-label {
+    width: 100px; /* Adjust label width if needed */
+    font-weight: bold;
+}
+
+.payment-card .ant-descriptions-item-content {
+    font-size: 1.1em;
+}
+
+.qr-code-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px dashed #d9d9d9;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.qr-code-container .ant-image {
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.qr-code-container .ant-typography-secondary {
+    margin-top: 8px;
+}
+
+.back-button {
+    /* position: absolute; */ /* Removing absolute positioning for simplicity if page header is used */
+    /* top: -40px; */
+    /* left: 0; */
+    margin-bottom: 16px; /* Add margin below back button */
+    z-index: 10;
+}
+
+.payment-method-selector {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 16px; /* Space between buttons */
+}
+
+.payment-method-selector .ant-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px; /* Adjust padding */
+    height: 40px; /* Consistent button height */
+}
+
+.payment-method-selector .ant-btn img {
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 24px; /* Slightly larger icons */
+    height: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mock-payment-container {
+        padding: 16px;
+    }
+    .payment-card-container {
+        max-width: 100%;
+        margin-top: 10px;
+    }
+    .payment-card .ant-card-head-title {
+        font-size: 1.3em;
+    }
+} 

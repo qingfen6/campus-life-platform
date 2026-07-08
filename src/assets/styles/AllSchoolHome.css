@@ -1,0 +1,350 @@
+/**
+ * 全学校首页样式
+ * 
+ * 包含：
+ * - 页面布局和标题样式
+ * - 轮播图样式
+ * - 科研成果卡片样式
+ * - 排行榜表格样式
+ * - 招生信息和高校活动样式
+ * - 悬浮按钮样式
+ */
+
+/* 页面基础样式 */
+.all-school-content {
+  padding: 24px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+/* 页面标题样式 */
+.all-school-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* 轮播图样式 */
+.carousel-section {
+  margin-bottom: 32px;
+}
+
+.all-school-carousel {
+  height: 360px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.carousel-item {
+  height: 360px;
+}
+
+.carousel-image {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.carousel-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+}
+
+.carousel-content {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  z-index: 2;
+  color: white;
+  max-width: 60%;
+}
+
+.carousel-content h2 {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 16px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.carousel-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  margin-bottom: 24px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* 卡片通用样式 */
+.all-school-card {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: var(--small-shadow);
+  transition: all 0.3s;
+}
+
+.all-school-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* 科研成果卡片样式 */
+.research-card {
+  transition: all 0.3s;
+  height: 100%;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.research-card .ant-card-cover img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.research-info p {
+  margin-bottom: 4px;
+}
+
+.research-tags {
+  margin-top: 8px;
+}
+
+/* 高校排行榜样式 */
+.ranking-card {
+  margin-top: 24px;
+}
+
+.ranking-table {
+  margin-top: 8px;
+}
+
+.rank-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rank-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.rank-1 {
+  background-color: #f5222d;
+  color: #fff;
+}
+
+.rank-2 {
+  background-color: #fa8c16;
+  color: #fff;
+}
+
+.rank-3 {
+  background-color: #faad14;
+  color: #fff;
+}
+
+.rank-normal {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.rank-change {
+  font-size: 12px;
+}
+
+.rank-change.up {
+  color: #52c41a;
+}
+
+.rank-change.down {
+  color: #f5222d;
+}
+
+.rank-change.same {
+  color: #999;
+}
+
+/* 活动卡片样式 */
+.activity-card {
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+}
+
+.activity-card .ant-card-cover img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.activity-info p {
+  margin-bottom: 4px;
+}
+
+.activity-badge {
+  z-index: 2;
+}
+
+/* 招生信息样式 */
+.admission-info {
+  margin-top: 8px;
+}
+
+.admission-dates {
+  display: flex;
+  justify-content: space-between;
+  color: var(--light-text);
+  margin-bottom: 8px;
+}
+
+.admission-tags {
+  margin-top: 8px;
+}
+
+/* 高校分类导航样式 */
+.university-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.university-categories button {
+  text-align: left;
+}
+
+/* 地区导航网格 */
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+/* 热门话题样式 */
+.hot-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hot-tag {
+  margin-bottom: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.hot-tag:hover {
+  transform: scale(1.05);
+}
+
+/* 悬浮按钮组样式 */
+.floating-buttons {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1000;
+}
+
+.float-button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s;
+}
+
+.float-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.school-button {
+  background-color: #1d39c4;
+  border-color: #1d39c4;
+}
+
+.school-button:hover {
+  background-color: #2f54eb;
+  border-color: #2f54eb;
+}
+
+.home-button {
+  background-color: #722ed1;
+  border-color: #722ed1;
+}
+
+.home-button:hover {
+  background-color: #9254de;
+  border-color: #9254de;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .all-school-carousel {
+    height: 250px;
+  }
+  
+  .carousel-item {
+    height: 250px;
+  }
+  
+  .carousel-content {
+    bottom: 30px;
+    left: 30px;
+    max-width: 80%;
+  }
+  
+  .carousel-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-content p {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .region-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .floating-buttons {
+    right: 16px;
+    bottom: 16px;
+    gap: 12px;
+  }
+  
+  .float-button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+} 

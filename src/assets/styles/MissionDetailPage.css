@@ -1,0 +1,284 @@
+/* 任务详情页样式 */
+.mission-detail-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+/* 头部区域 */
+.mission-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mission-breadcrumb {
+  font-size: 14px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+}
+
+/* 骨架屏 */
+.mission-detail-skeleton {
+  background: var(--component-background);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 主要内容容器 */
+.mission-detail-container {
+  margin-bottom: 30px;
+}
+
+/* 任务信息卡片 */
+.mission-info-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mission-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.mission-title-wrapper {
+  flex: 1;
+}
+
+.mission-title {
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+.mission-tags {
+  margin-top: 8px;
+}
+
+.mission-category-tag,
+.mission-difficulty-tag {
+  margin-right: 8px;
+  padding: 2px 8px;
+  font-weight: 500;
+}
+
+.mission-reward-banner {
+  background: linear-gradient(135deg, #f5a623, #f7b733);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reward-icon {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+.reward-amount {
+  font-size: 20px;
+}
+
+.mission-image {
+  margin: 16px 0;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f2f5;
+}
+
+.mission-image img {
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+
+.mission-description {
+  margin: 16px 0;
+}
+
+.mission-action {
+  text-align: center;
+  margin: 24px 0 8px;
+}
+
+.take-mission-button {
+  padding: 0 40px;
+  height: 46px;
+  font-size: 16px;
+}
+
+/* 发布者信息卡片 */
+.requestor-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-title-with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.card-title-with-icon .anticon {
+  margin-right: 8px;
+}
+
+.requestor-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.requestor-details {
+  margin-left: 16px;
+  flex: 1;
+}
+
+.requestor-details h3 {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.requestor-stats {
+  margin-bottom: 16px;
+}
+
+.requestor-stats p {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.requestor-stats .anticon {
+  margin-right: 8px;
+}
+
+.contact-action {
+  margin-top: 16px;
+}
+
+/* 相关任务推荐 */
+.related-missions {
+  margin-top: 32px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-icon {
+  margin-right: 8px;
+}
+
+.related-mission-card {
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.related-mission-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 接受任务模态框 */
+.modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.modal-icon {
+  margin-right: 8px;
+  color: #f5a623;
+}
+
+.take-mission-container .mission-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.take-mission-container .mission-title {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.take-mission-container .mission-reward {
+  font-weight: bold;
+  color: #f5a623;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.cancel-btn {
+  margin-right: 12px;
+}
+
+/* 紧急时间标记 */
+.urgent-time {
+  color: #f5222d !important;
+  font-weight: 500;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .mission-title-section {
+    flex-direction: column;
+  }
+  
+  .mission-reward-banner {
+    margin-top: 16px;
+    align-self: flex-start;
+  }
+  
+  .mission-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .back-button {
+    margin-top: 12px;
+  }
+}
+
+/* 深色模式适配 */
+.dark-mode .mission-reward-banner {
+  background: linear-gradient(135deg, #d48806, #faad14);
+}
+
+.dark-mode .take-mission-container .mission-info {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dark-mode .mission-image {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .requestor-card,
+.dark-mode .mission-info-card,
+.dark-mode .related-mission-card {
+  background: var(--component-background);
+} 

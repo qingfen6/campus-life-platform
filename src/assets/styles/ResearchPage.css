@@ -1,0 +1,129 @@
+.research-content {
+  padding: 24px;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.research-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.research-filters {
+  display: flex;
+  align-items: center;
+}
+
+.research-statistics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.research-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .research-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .research-filters {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .research-filters .ant-select,
+  .research-filters .ant-input {
+    width: 100% !important;
+  }
+
+  .research-statistics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 暗色模式 */
+.dark-mode .research-content {
+  background-color: #141414;
+}
+
+.dark-mode .stat-card,
+.dark-mode .research-card {
+  background: #1f1f1f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 表格样式优化 */
+.research-card .ant-table {
+  background: transparent;
+}
+
+.research-card .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+}
+
+.dark-mode .research-card .ant-table-thead > tr > th {
+  background: #262626;
+}
+
+.research-card .ant-table-tbody > tr:hover > td {
+  background: #f5f5f5;
+}
+
+.dark-mode .research-card .ant-table-tbody > tr:hover > td {
+  background: #262626;
+}
+
+/* 标签样式优化 */
+.research-card .ant-tag {
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+/* 统计数字样式 */
+.stat-card .ant-statistic-title {
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.stat-card .ant-statistic-content {
+  color: #262626;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.dark-mode .stat-card .ant-statistic-title {
+  color: #8c8c8c;
+}
+
+.dark-mode .stat-card .ant-statistic-content {
+  color: #fff;
+} 

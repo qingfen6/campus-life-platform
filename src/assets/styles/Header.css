@@ -1,0 +1,576 @@
+.app-header {
+  background-color: var(--card-bg) !important;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  height: 64px;
+  z-index: 900;
+  transition: var(--transition);
+}
+
+.search-container {
+  width: 40%;
+}
+
+.search-input {
+  border-radius: 20px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.search-input:hover, .search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 110, 245, 0.1);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.publish-btn {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 20px;
+  height: 36px;
+  padding: 0 24px;
+  transition: transform 0.2s ease;
+}
+
+.publish-btn:hover {
+  transform: translateY(-2px);
+  background-color: var(--primary-color-hover);
+}
+
+.action-btn {
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+}
+
+/* 通知和私信下拉菜单样式 */
+.notification-dropdown .ant-dropdown-menu,
+.message-dropdown .ant-dropdown-menu {
+  padding: 0;
+  width: 380px;
+  max-height: 600px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.dropdown-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.dropdown-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.dropdown-options {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-all {
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.dropdown-all:hover {
+  color: var(--primary-color);
+}
+
+/* 通知标签页样式 */
+.notification-tabs {
+  padding: 0 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-tabs .ant-tabs-nav {
+  margin-bottom: 0;
+}
+
+.notification-tabs .ant-tabs-tab {
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.notification-tabs .ant-tabs-tab-active {
+  font-weight: 500;
+}
+
+.notification-tabs .ant-tabs-ink-bar {
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+/* 私信搜索和过滤样式 */
+.message-search {
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.message-search .ant-input-affix-wrapper {
+  border-radius: 16px;
+  background-color: #f5f5f5;
+}
+
+.message-filter-tags {
+  padding: 0 16px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.message-filter-tags .ant-tag {
+  cursor: pointer;
+  margin-right: 8px;
+  border-radius: 12px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.new-message-btn {
+  font-size: 12px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 12px;
+}
+
+.dropdown-content {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px;
+  padding-bottom: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.dropdown-footer {
+  padding: 8px 16px;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.notification-item,
+.message-item {
+  padding: 10px 16px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.notification-item:hover,
+.message-item:hover {
+  background-color: #f5f5f5;
+}
+
+.notification-item.read {
+  opacity: 0.8;
+  background-color: #fafafa;
+}
+
+.notification-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notification-dot {
+  margin-top: 2px;
+}
+
+.notification-tag {
+  line-height: 16px;
+  height: 16px;
+  padding: 0 4px;
+  font-size: 10px;
+  margin: 0;
+}
+
+.notification-item .ant-list-item-meta-title,
+.message-item .ant-list-item-meta-title {
+  margin-bottom: 4px !important;
+}
+
+.notification-content {
+  margin-bottom: 4px !important;
+  font-size: 13px;
+  color: #595959;
+  line-height: 1.4;
+}
+
+.notification-time,
+.message-time {
+  font-size: 12px;
+  color: #8c8c8c !important;
+}
+
+/* 通知类型样式 */
+.notification-type-like .notification-content:before {
+  content: '❤️ ';
+}
+
+.notification-type-comment .notification-content:before {
+  content: '💬 ';
+}
+
+.notification-type-mention .notification-content:before {
+  content: '@ ';
+}
+
+.notification-type-system {
+  background-color: rgba(24, 144, 255, 0.05);
+}
+
+.notification-type-system:hover {
+  background-color: rgba(24, 144, 255, 0.1) !important;
+}
+
+/* 私信项目样式 */
+.message-item-avatar {
+  margin-right: 12px;
+}
+
+.message-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.message-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.message-tag {
+  line-height: 14px;
+  height: 16px;
+  padding: 0 4px;
+  font-size: 10px;
+  margin: 0;
+}
+
+.message-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-content {
+  font-size: 13px;
+  color: #5f5f5f;
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.message-item.unread .message-content {
+  color: #333;
+  font-weight: 500;
+}
+
+.message-item.unread {
+  background-color: rgba(24, 144, 255, 0.05);
+}
+
+.message-item.unread:hover {
+  background-color: rgba(24, 144, 255, 0.1);
+}
+
+.message-system-notice {
+  padding: 10px 16px;
+  font-size: 12px;
+  color: #8c8c8c;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.message-system-notice a {
+  margin-left: 5px;
+  color: var(--primary-color);
+}
+
+/* 空状态样式 */
+.notification-empty,
+.message-empty {
+  padding: 32px 0;
+}
+
+/* 活跃按钮样式 */
+.action-btn.active {
+  background-color: rgba(24, 144, 255, 0.15);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* 深色模式支持 */
+.dark-mode .dropdown-header {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #303030;
+}
+
+.dark-mode .dropdown-title {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-mode .dropdown-all {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.dark-mode .notification-tabs,
+.dark-mode .message-search,
+.dark-mode .message-filter-tags,
+.dark-mode .dropdown-footer {
+  border-color: #303030;
+}
+
+.dark-mode .notification-tabs {
+  background-color: #141414;
+}
+
+.dark-mode .message-search .ant-input-affix-wrapper {
+  background-color: #2d2d2d;
+  border-color: #434343;
+}
+
+.dark-mode .notification-item,
+.dark-mode .message-item {
+  border-bottom-color: rgba(255, 255, 255, 0.02);
+}
+
+.dark-mode .notification-item:hover,
+.dark-mode .message-item:hover {
+  background-color: #141414;
+}
+
+.dark-mode .notification-item.read {
+  background-color: #111;
+}
+
+.dark-mode .notification-content,
+.dark-mode .message-content {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-mode .message-item.unread .message-content {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.dark-mode .notification-time,
+.dark-mode .message-time {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.dark-mode .message-system-notice {
+  background-color: #141414;
+  border-bottom: 1px solid #303030;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dark-mode .dropdown-footer {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .message-item.unread {
+  background-color: rgba(24, 144, 255, 0.1);
+}
+
+.dark-mode .message-item.unread:hover {
+  background-color: rgba(24, 144, 255, 0.15);
+}
+
+.dark-mode .notification-type-system {
+  background-color: rgba(24, 144, 255, 0.15);
+}
+
+.dark-mode .notification-type-system:hover {
+  background-color: rgba(24, 144, 255, 0.2) !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .search-container {
+    width: 60%;
+  }
+  
+  .header-actions {
+    gap: 8px;
+  }
+  
+  .publish-btn {
+    padding: 0 16px;
+  }
+  
+  .notification-dropdown .ant-dropdown-menu,
+  .message-dropdown .ant-dropdown-menu {
+    width: 100vw;
+    border-radius: 0;
+    position: fixed;
+    top: 64px !important;
+    left: 0 !important;
+    max-height: calc(100vh - 64px);
+  }
+  
+  .dropdown-panel {
+    height: calc(100vh - 64px);
+  }
+  
+  .dropdown-content {
+    max-height: none;
+  }
+}
+
+/* Styles specifically for the Header Private Message Dropdown */
+/* Target the overlay using the class added in Header.js */
+.header-pm-overlay .ant-dropdown-menu {
+  background-color: var(--card-bg, #ffffff); /* Use variable or white */
+  border: 1px solid var(--border-color, #f0f0f0);
+  border-radius: 8px;
+  box-shadow: var(--shadow, 0 6px 16px rgba(0, 0, 0, 0.08));
+  padding: 0;
+  overflow: hidden;
+  width: 360px ; /* Adjust width */
+  max-height: 500px;
+}
+
+/* Styles for the inner content panel */
+.dropdown-panel.header-pm-dropdown {
+  width: 360px;
+  max-height: inherit;
+}
+
+/* Style the header within this specific dropdown */
+.header-pm-dropdown .dropdown-header {
+  background-color: var(--card-bg, #ffffff);
+  border-bottom: 1px solid var(--border-color, #f0f0f0);
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+/* Style the content area */
+.header-pm-dropdown .dropdown-content {
+   background-color: var(--card-bg, #ffffff);
+   max-height: calc(500px - 49px); /* Adjust based on header height and overlay max-height */
+   overflow-y: auto;
+}
+.header-pm-dropdown .dropdown-content::-webkit-scrollbar {
+  width: 5px;
+}
+.header-pm-dropdown .dropdown-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+
+/* Style list items specifically within this dropdown */
+.header-pm-dropdown .message-item {
+   padding: 10px 16px !important;
+   margin: 0;
+   border: none;
+   border-bottom: 1px solid var(--border-color, #f0f0f0);
+}
+
+/* Remove border from the last item */
+.header-pm-dropdown .ant-list-items > .message-item:last-child {
+    border-bottom: none;
+}
+
+
+.header-pm-dropdown .message-item:hover {
+  background-color: var(--hover-bg, #f5f5f5);
+}
+
+/* Style the Meta content for better layout */
+.header-pm-dropdown .message-item .ant-list-item-meta {
+  align-items: center;
+}
+.header-pm-dropdown .message-item .ant-list-item-meta-content {
+  width: 100%;
+}
+.header-pm-dropdown .message-title-row {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 2px;
+}
+
+/* Dark Mode Adjustments for the Header PM dropdown */
+.dark-mode .header-pm-overlay .ant-dropdown-menu {
+  background-color: #1f1f1f;
+  border: 1px solid #303030;
+}
+
+.dark-mode .header-pm-dropdown .dropdown-header {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #303030;
+}
+
+.dark-mode .header-pm-dropdown .dropdown-content {
+   background-color: #1f1f1f;
+}
+.dark-mode .header-pm-dropdown .dropdown-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.dark-mode .header-pm-dropdown .message-item {
+   border-bottom: 1px solid #303030;
+}
+
+.dark-mode .header-pm-dropdown .ant-list-items > .message-item:last-child {
+    border-bottom: none;
+}
+
+.dark-mode .header-pm-dropdown .message-item:hover {
+  background-color: #2a2a2a;
+}
+
+/* Dark mode empty state */
+.dark-mode .header-pm-dropdown .ant-empty-description {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+/* Responsive adjustments might need refinement for this specific dropdown */
+@media (max-width: 768px) {
+  /* Example: make header dropdown wider on mobile if needed */
+  /* .header-pm-overlay .ant-dropdown-menu {
+    width: 90vw;
+  } */
+} 

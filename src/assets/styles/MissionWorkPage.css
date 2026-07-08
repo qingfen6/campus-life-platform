@@ -1,0 +1,165 @@
+.mission-work-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.mission-info-card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.mission-title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mission-work-content {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mission-steps {
+  margin: 20px 0;
+}
+
+.mission-detail-content,
+.mission-communication,
+.mission-submission {
+  padding: 20px 0;
+}
+
+.mission-progress-section {
+  margin-top: 24px;
+}
+
+.current-progress-info {
+  margin: 16px 0;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.update-progress-form {
+  margin-top: 24px;
+}
+
+.communication-list {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 16px;
+  background-color: #fafafa;
+}
+
+.send-message-form {
+  margin-top: 20px;
+}
+
+.send-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submission-history {
+  margin-top: 24px;
+}
+
+.submission-item {
+  margin-bottom: 16px;
+}
+
+.submission-time {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.submission-content {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 3px solid #1890ff;
+}
+
+.submission-description {
+  margin-bottom: 8px;
+}
+
+.submission-feedback {
+  margin-top: 12px;
+  padding: 8px;
+  background-color: #fff7e6;
+  border-radius: 4px;
+  border-left: 3px solid #faad14;
+}
+
+/* 加载状态 */
+.mission-work-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+
+.loading-text {
+  margin-top: 16px;
+  color: #666;
+}
+
+/* 错误状态 */
+.mission-work-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 24px;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .mission-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .mission-title-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* 适配深色模式 */
+.dark-mode .mission-info-card,
+.dark-mode .mission-work-content {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .current-progress-info {
+  background-color: #141414;
+}
+
+.dark-mode .communication-list {
+  background-color: #141414;
+  border-color: #303030;
+}
+
+.dark-mode .submission-content {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .submission-feedback {
+  background-color: #262626;
+  border-left-color: #d89614;
+}

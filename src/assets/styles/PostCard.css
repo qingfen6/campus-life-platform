@@ -1,0 +1,108 @@
+/* src/assets/styles/PostCard.css */
+
+/* 基于 Home.css 中的 .post-card 样式，并为 ProfilePage 简化 */
+.post-card {
+  border-radius: 8px; /* 稍微减小圆角以便更紧凑 */
+  overflow: hidden;
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.07)); /* 更轻微的阴影 */
+  border: 1px solid var(--border-color-split, #f0f0f0);
+  background-color: var(--component-background, #fff);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%; /* 确保卡片在栅格中高度一致 */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer; /* 表明可点击 */
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+/* 个人资料页的帖子卡片特定类名，可以用于覆盖或添加特定样式 */
+.profile-post-card {
+  /* 如果需要，可以在此处为 profile-post-card 添加特定样式 */
+  /* 例如，如果希望它比通用的 post-card 更小或有不同的边距 */
+}
+
+/* 图片容器 - PostCardProfile.js 中已使用 post-card-image-container */
+.post-card-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 保持图片比例 */
+  overflow: hidden;
+  background-color: #f0f0f0; /* 图片加载时的占位背景 */
+}
+
+.post-card-image-container .post-card-image { /* 针对 antd Image 组件的内部 img 标签 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 裁剪并填充容器 */
+  transition: transform 0.3s ease-in-out;
+}
+
+.post-card:hover .post-card-image-container .post-card-image {
+  transform: scale(1.05); /* 图片轻微放大效果 */
+}
+
+/* 卡片内容区域 (Card.Meta 内部) */
+.profile-post-card .ant-card-meta-title {
+  font-size: 1rem; /* 调整标题字体大小 */
+  font-weight: 500;
+  margin-bottom: 4px !important; /* Antd Card.Meta 可能会有自己的 margin */
+  color: var(--text-color, rgba(0, 0, 0, 0.88));
+}
+
+.profile-post-card .ant-card-meta-description {
+  font-size: 0.875rem; /* 调整描述/内容字体大小 */
+  color: var(--text-color-secondary, rgba(0, 0, 0, 0.65));
+}
+
+/* 卡片底部 - PostCardProfile.js 中已使用 post-card-footer */
+.post-card-footer {
+  margin-top: 12px; /* 与上方内容的间距 */
+  padding-top: 8px; /* 顶内边距，如果 Card.Meta 区域没有padding */
+  border-top: 1px solid var(--border-color-split, #f0f0f0); /* 分割线 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem; /* 统一页脚字体大小 */
+  color: var(--text-color-secondary, rgba(0, 0, 0, 0.45));
+}
+
+.post-card-footer .ant-space-item {
+  display: flex;
+  align-items: center;
+  cursor: default; /* 避免内部元素也显示手型光标，除非它们是可交互的 */
+}
+
+.post-card-footer .anticon {
+  margin-right: 6px;
+  font-size: 1rem; /* 图标大小 */
+}
+
+/* 如果需要适配暗色模式，可以添加如下样式 */
+/*
+.dark-mode .post-card,
+.dark-mode .profile-post-card {
+  background-color: var(--component-background-dark, #1e1e1e);
+  border-color: var(--border-color-split-dark, #303030);
+  box-shadow: var(--shadow-sm-dark, 0 2px 8px rgba(0, 0, 0, 0.25));
+}
+
+.dark-mode .post-card:hover {
+  box-shadow: var(--shadow-md-dark, 0 4px 12px rgba(0, 0, 0, 0.35));
+}
+
+.dark-mode .profile-post-card .ant-card-meta-title {
+  color: var(--text-color-dark, rgba(255, 255, 255, 0.85));
+}
+
+.dark-mode .profile-post-card .ant-card-meta-description,
+.dark-mode .post-card-footer {
+  color: var(--text-color-secondary-dark, rgba(255, 255, 255, 0.65));
+}
+
+.dark-mode .post-card-footer {
+  border-top-color: var(--border-color-split-dark, #303030);
+}
+*/ 

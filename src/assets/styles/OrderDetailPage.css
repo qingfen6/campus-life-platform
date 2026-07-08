@@ -1,0 +1,11 @@
+/* src/assets/styles/OrderDetailPage.css */
+
+/* 基本页面布局 */
+.order-detail-page-content {
+    background-color: #fff; /* 根据您的主题调整 */
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 可以为 Descriptions, Card, Image 等组件添加特定样式 */ 

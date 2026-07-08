@@ -1,0 +1,80 @@
+/* 评论抽屉样式 */
+.comment-drawer .ant-drawer-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color, #333);
+}
+
+.comment-drawer .ant-drawer-body {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 55px); /* 减去标题栏高度 */
+  padding: 0;
+  overflow: hidden;
+}
+
+.comment-drawer-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-drawer-subtitle {
+  font-size: 12px;
+  color: var(--light-text, #999);
+  font-weight: normal;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.comment-error {
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  color: #ff4d4f;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 16px;
+}
+
+/* 自定义评论抽屉内容样式 */
+.comment-drawer .comment-section {
+  border-radius: 0;
+  height: 100%;
+}
+
+.comment-drawer .comment-list-container {
+  height: calc(100% - 120px); /* 减去评论表单高度 */
+}
+
+.comment-drawer .comment-form-container {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  padding: 12px 16px;
+}
+
+/* 暗色模式支持 */
+.dark-mode .comment-drawer .ant-drawer-title {
+  color: var(--text-color, #f0f0f0);
+}
+
+.dark-mode .comment-drawer-subtitle {
+  color: var(--light-text, #777);
+}
+
+.dark-mode .comment-error {
+  background-color: rgba(255, 77, 79, 0.1);
+  border-color: rgba(255, 77, 79, 0.3);
+}
+
+@media (max-width: 576px) {
+  .comment-drawer .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
+  
+  .comment-drawer-subtitle {
+    max-width: 200px;
+  }
+} 

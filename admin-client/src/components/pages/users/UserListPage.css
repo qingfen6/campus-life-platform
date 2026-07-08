@@ -1,0 +1,20 @@
+/* admin-client/src/components/pages/users/UserListPage.css */
+.user-list-page {
+  padding: 20px;
+  background: #fff; /* 确保在暗色模式下也有合适的背景 */
+}
+
+.user-list-page h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+/* 可以根据需要添加更多自定义样式 */
+.ant-table-cell {
+    white-space: nowrap;
+}
+
+/* 当表格内容过多时，保持列宽，让表格本身横向滚动 */
+.ant-table-wrapper {
+    overflow-x: auto;
+} 

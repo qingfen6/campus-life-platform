@@ -1,0 +1,279 @@
+/**
+ * 学院组件通用样式
+ * 
+ * 包含：
+ * - 基本信息组件样式
+ * - 专业设置组件样式
+ * - 师资力量组件样式
+ * - 科研成果组件样式
+ * - 学院新闻组件样式
+ * - 招聘信息组件样式
+ * - 实验室资源组件样式
+ * - 学生活动组件样式
+ * - 组件编辑按钮样式
+ */
+
+/* 通用样式 */
+.edit-component-buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 学院基本信息组件样式 */
+.faculty-intro {
+  margin-bottom: 24px;
+}
+
+.faculty-contact-card {
+  height: 100%;
+}
+
+.faculty-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faculty-contact-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.contact-icon {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+/* 专业设置组件样式 */
+.major-card {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.major-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.research-areas {
+  margin: 16px 0;
+}
+
+.major-leader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.leader-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-major-button {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+/* 师资力量组件样式 */
+.staff-card {
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.staff-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.staff-avatar {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+}
+
+.staff-info {
+  margin-top: 8px;
+}
+
+.staff-info h4 {
+  margin-bottom: 4px;
+}
+
+.staff-contact {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.filter-buttons {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 科研成果组件样式 */
+.research-card {
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.research-card .ant-card-cover {
+  height: 180px;
+  overflow: hidden;
+}
+
+.research-card .ant-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.research-info {
+  margin-top: 8px;
+}
+
+.research-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* 学院新闻组件样式 */
+.news-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-info {
+  display: flex;
+  justify-content: space-between;
+  color: var(--light-text);
+}
+
+.news-filter {
+  margin-bottom: 16px;
+}
+
+/* 招聘信息组件样式 */
+.recruitment-date {
+  text-align: center;
+  position: relative;
+}
+
+.recruitment-date .date-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.recruitment-date .date-month {
+  font-size: 14px;
+  color: var(--light-text);
+}
+
+.recruitment-company {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.recruitment-content {
+  margin-top: 16px;
+}
+
+.recruitment-content p {
+  margin-bottom: 4px;
+}
+
+.recruitment-tags {
+  margin-top: 8px;
+}
+
+/* 实验室资源组件样式 */
+.lab-card {
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.lab-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.lab-image {
+  height: 160px;
+  overflow: hidden;
+}
+
+.lab-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lab-info {
+  margin-top: 8px;
+}
+
+.lab-info p {
+  margin-bottom: 4px;
+}
+
+.equipment-list {
+  margin-top: 8px;
+}
+
+.equipment-item {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.equipment-icon {
+  color: var(--primary-color);
+}
+
+/* 学生活动组件样式 */
+.activity-card {
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.activity-image {
+  height: 160px;
+  overflow: hidden;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-info {
+  margin-top: 8px;
+}
+
+.activity-info p {
+  margin-bottom: 4px;
+} 

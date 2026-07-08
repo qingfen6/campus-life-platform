@@ -1,0 +1,837 @@
+.club-activity-content {
+  padding: 24px;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  position: relative;
+}
+
+.club-activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.club-activity-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  position: relative;
+}
+
+.club-activity-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #1890ff;
+  border-radius: 3px;
+}
+
+.activity-filters {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.activity-filters .ant-select,
+.activity-filters .ant-input {
+  margin-right: 16px;
+  border-radius: 6px;
+}
+
+.activity-filters .ant-input {
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.activity-filters .ant-input:hover,
+.activity-filters .ant-input:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.activity-card {
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.activity-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.activity-card .ant-card-cover {
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-card .ant-card-cover img {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.activity-card:hover .ant-card-cover img {
+  transform: scale(1.05);
+}
+
+.activity-info {
+  margin-top: 16px;
+}
+
+.activity-info p {
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+}
+
+.activity-info p .anticon {
+  margin-right: 8px;
+  font-size: 14px;
+  color: #1890ff;
+}
+
+.activity-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.activity-footer {
+  margin-top: 20px;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-footer .participants-count {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.activity-footer .participants-count .anticon {
+  margin-right: 5px;
+  color: #1890ff;
+}
+
+.activity-footer .ant-btn {
+  border-radius: 20px;
+  padding: 0 20px;
+  height: 36px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-footer .ant-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: all 0.6s;
+}
+
+.activity-footer .ant-btn:hover::before {
+  left: 100%;
+}
+
+/* 卡片特效 */
+.activity-card .ant-badge-ribbon {
+  padding: 0 10px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 标签样式优化 */
+.activity-card .ant-tag {
+  margin: 0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* 活动状态标记 */
+.activity-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 6px 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  z-index: 1;
+  border-bottom-left-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.activity-status.enrolling {
+  background-color: rgba(82, 196, 26, 0.85);
+}
+
+.activity-status.ongoing {
+  background-color: rgba(24, 144, 255, 0.85);
+}
+
+.activity-status.ended {
+  background-color: rgba(120, 120, 120, 0.85);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .club-activity-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .activity-filters {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .activity-filters .ant-select,
+  .activity-filters .ant-input {
+    width: 100% !important;
+    margin-right: 0;
+  }
+
+  .activity-card .ant-card-cover img {
+    height: 180px;
+  }
+}
+
+/* 暗色模式 */
+.dark-mode .club-activity-content {
+  background-color: var(--bg-color);
+}
+
+.dark-mode .club-activity-header {
+  border-bottom-color: #303030;
+}
+
+.dark-mode .club-activity-header h2 {
+  color: var(--heading-color);
+}
+
+.dark-mode .activity-filters {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #303030;
+}
+
+.dark-mode .activity-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .activity-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .activity-info p {
+  color: var(--text-color);
+}
+
+.dark-mode .activity-footer .participants-count {
+  color: var(--light-text);
+}
+
+.dark-mode .activity-info p .anticon {
+  color: var(--primary-color);
+}
+
+/* 标签样式优化 */
+.dark-mode .activity-card .ant-tag {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 暗色模式下的按钮样式 */
+.dark-mode .activity-footer .ant-btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.dark-mode .activity-footer .ant-btn:disabled {
+  background-color: #555;
+  border-color: #555;
+  color: var(--light-text);
+}
+
+/* 空状态样式 */
+.activities-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: #999;
+}
+
+.dark-mode .activities-empty {
+  color: var(--light-text);
+}
+
+/* 加载中动画 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+/* 活动类型标签颜色 */
+.activity-type-tag {
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.activity-type-文艺活动 {
+  color: #722ed1;
+  background: rgba(114, 46, 209, 0.1);
+}
+
+.activity-type-艺术活动 {
+  color: #eb2f96;
+  background: rgba(235, 47, 150, 0.1);
+}
+
+.activity-type-体育活动 {
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+}
+
+.activity-type-文化活动 {
+  color: #13c2c2;
+  background: rgba(19, 194, 194, 0.1);
+}
+
+.activity-type-公益活动 {
+  color: #52c41a;
+  background: rgba(82, 196, 26, 0.1);
+}
+
+.activity-type-学术活动 {
+  color: #fa8c16;
+  background: rgba(250, 140, 22, 0.1);
+}
+
+.dark-mode .activity-type-文艺活动 {
+  color: #b37feb;
+  background: rgba(179, 127, 235, 0.2);
+}
+
+.dark-mode .activity-type-艺术活动 {
+  color: #f759ab;
+  background: rgba(247, 89, 171, 0.2);
+}
+
+.dark-mode .activity-type-体育活动 {
+  color: #69c0ff;
+  background: rgba(105, 192, 255, 0.2);
+}
+
+.dark-mode .activity-type-文化活动 {
+  color: #5cdbd3;
+  background: rgba(92, 219, 211, 0.2);
+}
+
+.dark-mode .activity-type-公益活动 {
+  color: #95de64;
+  background: rgba(149, 222, 100, 0.2);
+}
+
+.dark-mode .activity-type-学术活动 {
+  color: #ffc069;
+  background: rgba(255, 192, 105, 0.2);
+}
+
+/* 活动详情样式 */
+.activity-detail {
+  padding: 0 0 24px 0;
+}
+
+.activity-detail-cover {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.activity-detail-header {
+  margin-bottom: 16px;
+}
+
+.activity-detail-tags {
+  margin-top: 12px;
+}
+
+.activity-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.activity-highlights li {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.activity-info-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activity-info-card p {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.activity-info-card .anticon {
+  margin-right: 8px;
+  color: #1890ff;
+}
+
+.organizer-info {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.organizer-details {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 活动卡片操作按钮 */
+.activity-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* 报名表单样式 */
+.registration-form {
+  padding: 0 8px;
+}
+
+.registration-activity {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.form-item {
+  margin-bottom: 16px;
+}
+
+.form-item label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* 深色模式适配 */
+.dark-mode .activity-detail-cover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .activity-info-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .activity-info-card .anticon {
+  color: var(--primary-color);
+}
+
+.dark-mode .activity-highlights li {
+  color: var(--text-color);
+}
+
+.dark-mode .form-item label {
+  color: var(--heading-color);
+}
+
+.dark-mode .registration-activity {
+  border-bottom-color: #383838;
+}
+
+/* 社团活动页面样式 */
+.club-activity-layout {
+  min-height: 100vh;
+}
+
+.club-activity-content {
+  padding: 24px;
+  background-color: var(--background-color);
+  transition: all 0.3s;
+}
+
+/* 标签页样式 */
+.club-activity-tabs {
+  background-color: var(--card-background);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 头部样式 */
+.club-activity-header,
+.recruitment-header,
+.resource-header,
+.forum-header,
+.calendar-header,
+.dynamic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.club-activity-header h2,
+.recruitment-header h2,
+.resource-header h2,
+.forum-header h2,
+.calendar-header h2,
+.dynamic-header h2 {
+  margin: 0;
+  color: var(--heading-color);
+}
+
+/* 筛选器样式 */
+.activity-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* 活动卡片样式 */
+.activity-card {
+  margin-bottom: 24px;
+  transition: all 0.3s;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.activity-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.activity-description {
+  margin: 12px 0;
+  color: var(--text-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.activity-stats {
+  margin-top: 12px;
+  color: var(--text-secondary);
+}
+
+/* 招新卡片样式 */
+.recruitment-card {
+  margin-bottom: 24px;
+  transition: all 0.3s;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.recruitment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recruitment-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recruitment-requirements {
+  margin: 12px 0;
+}
+
+.recruitment-requirements h4 {
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+
+.recruitment-requirements ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-color);
+}
+
+.interview-slots {
+  margin-top: 12px;
+}
+
+.interview-slots h4 {
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+
+/* 资源卡片样式 */
+.resource-card {
+  margin-bottom: 24px;
+  transition: all 0.3s;
+  border-radius: 8px;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.resource-description {
+  margin: 12px 0;
+  color: var(--text-color);
+}
+
+.resource-stats {
+  margin-top: 12px;
+  color: var(--text-secondary);
+}
+
+/* 论坛帖子卡片样式 */
+.forum-post-card {
+  margin-bottom: 24px;
+  transition: all 0.3s;
+  border-radius: 8px;
+}
+
+.forum-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-content {
+  margin: 12px 0;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* 日历样式 */
+.activity-calendar {
+  background-color: var(--card-background);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.calendar-events {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.calendar-events li {
+  margin: 4px 0;
+}
+
+/* 动态信息流样式 */
+.dynamic-list {
+  background-color: var(--card-background);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.post-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.post-images img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* 活动详情模态框样式 */
+.activity-detail {
+  padding: 24px;
+}
+
+.detail-cover {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.detail-description {
+  margin: 16px 0;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.detail-stats {
+  margin-top: 16px;
+  color: var(--text-secondary);
+}
+
+/* 暗色模式样式 */
+.dark-mode .club-activity-content {
+  background-color: var(--dark-background);
+}
+
+.dark-mode .club-activity-tabs,
+.dark-mode .activity-calendar,
+.dark-mode .dynamic-list {
+  background-color: var(--dark-card-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .activity-card,
+.dark-mode .recruitment-card,
+.dark-mode .resource-card,
+.dark-mode .forum-post-card {
+  background-color: var(--dark-card-background);
+  border-color: var(--dark-border-color);
+}
+
+.dark-mode .activity-description,
+.dark-mode .post-content {
+  color: var(--dark-text-color);
+}
+
+.dark-mode .activity-stats,
+.dark-mode .resource-stats {
+  color: var(--dark-text-secondary);
+}
+
+.dark-mode .recruitment-requirements h4,
+.dark-mode .interview-slots h4 {
+  color: var(--dark-heading-color);
+}
+
+.dark-mode .recruitment-requirements ul {
+  color: var(--dark-text-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .club-activity-content {
+    padding: 16px;
+  }
+
+  .activity-filters {
+    flex-direction: column;
+  }
+
+  .activity-filters .ant-select,
+  .activity-filters .ant-input-search {
+    width: 100% !important;
+  }
+
+  .activity-card,
+  .recruitment-card,
+  .resource-card,
+  .forum-post-card {
+    margin-bottom: 16px;
+  }
+
+  .post-images {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .post-images img {
+    height: 120px;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activity-card,
+.recruitment-card,
+.resource-card,
+.forum-post-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 交互效果 */
+.liked {
+  color: #ff4d4f;
+}
+
+.ant-btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--primary-color-hover);
+  border-color: var(--primary-color-hover);
+}
+
+.ant-tag {
+  border-radius: 4px;
+}
+
+.ant-badge-status-text {
+  color: var(--text-color);
+}
+
+.dark-mode .ant-badge-status-text {
+  color: var(--dark-text-color);
+} 

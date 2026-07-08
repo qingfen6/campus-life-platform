@@ -1,0 +1,491 @@
+/**
+ * 全局样式
+ * 
+ * 包含：
+ * - CSS变量（明亮/深色模式）
+ * - 基础样式重置
+ * - 通用样式类
+ */
+
+:root {
+  /* 主色调 */
+  --primary-color: #1890ff;
+  --primary-color-hover: #40a9ff;
+  --primary-color-active: #096dd9;
+  --primary-color-outline: rgba(24, 144, 255, 0.2);
+  
+  /* 成功、警告、错误色 */
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #f5222d;
+  
+  /* 中性色 */
+  --heading-color: rgba(0, 0, 0, 0.85);
+  --text-color: rgba(0, 0, 0, 0.65);
+  --light-text: rgba(0, 0, 0, 0.45);
+  --border-color: #f0f0f0;
+  
+  /* 背景色 */
+  --bg-color: #f5f5f5;
+  --card-bg: #ffffff;
+  
+  /* 阴影 */
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --small-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  
+  /* 边框圆角 */
+  --border-radius-base: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-sm: 2px;
+  
+  /* 其他 */
+  --transition-base: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  
+  /* 布局 */
+  --sidebar-width: 200px;
+  --header-height: 64px;
+}
+
+/* 深色模式变量 */
+.dark-mode {
+  --primary-color: #177ddc;
+  --primary-color-hover: #40a9ff;
+  --primary-color-active: #0958a4;
+  
+  --heading-color: rgba(255, 255, 255, 0.95);
+  --text-color: rgba(255, 255, 255, 0.85);
+  --light-text: rgba(255, 255, 255, 0.65);
+  --border-color: #303030;
+  
+  --bg-color: #141414;
+  --card-bg: #1f1f1f;
+  --item-hover-bg: #262626;
+  --component-bg: #262626;
+  --table-header-bg: #262626;
+  --table-row-hover-bg: #1f1f1f;
+  
+  --success-color: #49aa19;
+  --warning-color: #d89614;
+  --warning-light: #e8b339;
+  --error-color: #a61d24;
+  
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --small-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  
+  /* 集市页面专用颜色 */
+  --market-bg: #141414;
+  --market-card-bg: #1f1f1f;
+  --market-price-color: #ff7a45;
+  --market-discount-bg: rgba(255, 85, 0, 0.2);
+  --market-filter-bg: #1f1f1f;
+  --market-button-bg: linear-gradient(90deg, #d87a16, #fa8c16);
+  --market-button-color: #fff;
+  
+  /* 悬赏页面专用颜色 */
+  --mission-bg: #141414;
+  --mission-card-bg: #1f1f1f;
+  --mission-easy-bg: rgba(82, 196, 26, 0.2);
+  --mission-medium-bg: rgba(250, 173, 20, 0.2);
+  --mission-hard-bg: rgba(255, 77, 79, 0.2);
+  --mission-reward-bg: linear-gradient(45deg, rgba(250, 140, 22, 0.4), rgba(255, 214, 102, 0.4));
+  --mission-reward-color: #ffc53d;
+  --mission-secondary-color: #ffc53d;
+  
+  /* 首页专用颜色 */
+  --home-bg: #141414;
+  --topic-tag-bg: #262626;
+  --topic-tag-border: #434343;
+  --shortcut-icon-opacity: 0.85;
+  --post-action-color: #8c8c8c;
+  --post-action-hover-color: var(--primary-color);
+  --credit-high-bg: rgba(73, 170, 25, 0.2);
+  --credit-high-color: #73d13d;
+  --credit-medium-bg: rgba(216, 150, 20, 0.2);
+  --credit-medium-color: #ffc53d;
+  --credit-low-bg: rgba(166, 29, 36, 0.2);
+  --credit-low-color: #ff7875;
+}
+
+/* 基础样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.dark-mode {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--primary-color-hover);
+}
+
+/* 应用布局类 */
+.app-layout {
+  min-height: 100vh;
+}
+
+/* 内容区域样式，保证滚动条只影响内容 */
+.app-content {
+  margin-left: 200px;
+  padding: 24px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.app-content.sidebar-collapsed {
+  margin-left: 80px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .app-content {
+    margin-left: 0;
+    padding: 16px;
+    padding-left: calc(80px + 16px);
+  }
+  
+  .app-content.sidebar-collapsed {
+    padding-left: 16px;
+  }
+}
+
+/* 通用样式类 */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+/* 重写ant-design深色模式下的一些样式 */
+.dark-mode .ant-card {
+  background-color: var(--card-bg);
+  border-color: #303030;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .ant-input {
+  background-color: #242424;
+  border-color: #434343;
+  color: var(--text-color);
+}
+
+.dark-mode .ant-input::placeholder {
+  color: var(--light-text);
+}
+
+.dark-mode .ant-select-selector {
+  background-color: #242424 !important;
+  border-color: #434343 !important;
+  color: var(--text-color) !important;
+}
+
+.dark-mode .ant-modal-content,
+.dark-mode .ant-modal-header {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dark-mode .ant-modal-title,
+.dark-mode .ant-modal-close {
+  color: var(--heading-color);
+}
+
+.dark-mode .ant-btn {
+  border-color: #434343;
+}
+
+.dark-mode .ant-btn-default {
+  background-color: #242424;
+  color: var(--text-color);
+}
+
+.dark-mode .ant-btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.dark-mode .ant-tabs-tab {
+  color: var(--light-text);
+}
+
+.dark-mode .ant-tabs-tab:hover {
+  color: var(--primary-color);
+}
+
+.dark-mode .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--primary-color);
+}
+
+.dark-mode .ant-progress-text {
+  color: var(--text-color) !important;
+}
+
+.dark-mode .ant-form-item-label > label {
+  color: var(--heading-color);
+}
+
+.dark-mode .ant-divider {
+  border-color: #383838;
+}
+
+.dark-mode .ant-tag {
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.dark-mode .ant-tag-blue {
+  background: #177ddc;
+}
+
+.dark-mode .ant-tag-green {
+  background: #49aa19;
+}
+
+.dark-mode .ant-tag-orange {
+  background: #d87a16;
+}
+
+.dark-mode .ant-tag-red {
+  background: #a8071a;
+}
+
+/* 改进卡片标题在深色模式下的可见性 */
+.dark-mode .ant-card-meta-title {
+  color: var(--heading-color);
+}
+
+.dark-mode .ant-card-meta-description {
+  color: var(--text-color);
+}
+
+/* 改进表格在深色模式下的样式 */
+.dark-mode .ant-table {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.dark-mode .ant-table-thead > tr > th {
+  background-color: #242424;
+  color: var(--heading-color);
+  border-bottom: 1px solid #303030;
+}
+
+.dark-mode .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #303030;
+}
+
+.dark-mode .ant-table-tbody > tr:hover > td {
+  background-color: #242424;
+}
+
+/* 添加一些深色模式下的强调色用于商品和任务卡片 */
+.dark-mode .market-card .price {
+  color: #ff7a45 !important;
+  text-shadow: none;
+}
+
+.dark-mode .market-card .discount-badge {
+  color: #fff;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .market-card .market-card-title {
+  color: #fff;
+}
+
+.dark-mode .market-card .original-price {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dark-mode .market-card .condition {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .market-card .tag {
+  background-color: #2b2b2b;
+}
+
+.dark-mode .mission-card .mission-card-title {
+  color: #fff;
+}
+
+.dark-mode .mission-card .mission-reward {
+  color: #ffd666;
+  text-shadow: 0 0 3px rgba(250, 173, 20, 0.5);
+}
+
+.dark-mode .mission-card .mission-description {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* 修正输入框和下拉菜单在深色模式下的颜色 */
+.dark-mode .ant-select-dropdown {
+  background-color: #1f1f1f;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .ant-select-item {
+  color: var(--text-color);
+}
+
+.dark-mode .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #111b26;
+}
+
+/* 优化深色模式下的空状态显示 */
+.dark-mode .ant-empty-description {
+  color: var(--light-text);
+}
+
+.dark-mode .ant-empty-img-simple-ellipse {
+  fill: #3e3e3e;
+}
+
+.dark-mode .ant-empty-img-simple-g {
+  stroke: #5c5c5c;
+}
+
+.dark-mode .ant-empty-img-simple-path {
+  fill: #4b4b4b;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* 通用按钮样式覆盖 */
+.ant-btn-primary {
+  background-color: var(--primary-color);
+}
+
+/* 浮动按钮 */
+.circle-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-color-hover));
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.circle-button:hover {
+  transform: scale(1.1);
+}
+
+/* 分页组件 */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.ant-pagination-item {
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  transition: var(--transition-base);
+}
+
+.ant-pagination-item-active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.ant-pagination-item-active a {
+  color: white;
+}
+
+.ant-pagination-prev button, 
+.ant-pagination-next button {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 

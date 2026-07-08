@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <style>
+        :root {
+            --primary-blue: #2B6CB0;
+            --accent-teal: #38B2AC;
+            --campus-green: #48BB78;
+        }
+        
+        .login-container {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6fffa 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            padding: 2.5rem;
+            width: 380px;
+            text-align: center;
+        }
+
+        .campus-logo {
+            width: 120px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .wechat-btn {
+            background: #07C160;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .divider {
+            margin: 2rem 0;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="auth-card">
+            <!-- 学校LOGO区域 -->
+            <div class="logo-area">
+                <img src="/assets/campus-logo.svg" alt="校园社区" class="campus-logo">
+                <h1>校园智慧社区</h1>
+            </div>
+            
+            <!-- 微信登录主按钮 -->
+            <button class="wechat-btn">
+                <img src="/assets/wechat-icon.svg" width="24" alt="微信">
+                微信一键登录
+            </button>
+
+            <!-- 传统登录切换 -->
+            <div class="divider">或使用学校账号登录</div>
+            <a href="/ldap-login" class="school-login-link">学校统一认证登录 →</a>
+        </div>
+    </div>
+</body>
+</html> 

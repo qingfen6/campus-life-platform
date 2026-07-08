@@ -1,0 +1,331 @@
+.mission-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: var(--card-bg);
+  border: 2px solid transparent;
+  position: relative;
+  height: 100%;
+}
+
+.mission-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 紧急任务样式 */
+.urgent-mission {
+  border-color: #ff4d4f;
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0% {
+    border-color: #ff4d4f;
+  }
+  50% {
+    border-color: #ffccc7;
+  }
+  100% {
+    border-color: #ff4d4f;
+  }
+}
+
+/* 图片容器 */
+.mission-image-container {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.mission-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(0.85);
+}
+
+.mission-card:hover .mission-image {
+  transform: scale(1.08);
+}
+
+/* 难度等级标签 */
+.mission-difficulty {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.easy {
+  background-color: #52c41a;
+  color: white;
+}
+
+.medium {
+  background-color: #faad14;
+  color: white;
+}
+
+.hard {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+/* 奖励金额 */
+.mission-reward {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(45deg, #fa8c16, #ffd666);
+  color: #873800;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 8px rgba(250, 140, 22, 0.3);
+  z-index: 5;
+}
+
+.reward-icon {
+  color: #873800;
+  font-size: 1rem;
+}
+
+.reward-amount {
+  font-size: 1rem;
+}
+
+/* 卡片内容 */
+.mission-card-content {
+  padding: 12px 16px;
+}
+
+.mission-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mission-category {
+  margin-right: 8px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  border-radius: 10px;
+  font-weight: normal;
+}
+
+.mission-description {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-bottom: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.mission-progress-container {
+  margin-bottom: 12px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+  color: var(--light-text);
+}
+
+/* 任务元数据 */
+.mission-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+}
+
+.mission-deadline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--light-text);
+}
+
+.urgent-time {
+  color: #ff4d4f;
+  font-weight: bold;
+  animation: pulse-text 1.5s infinite;
+}
+
+@keyframes pulse-text {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.mission-requestor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.requestor-name {
+  color: var(--light-text);
+}
+
+/* 卡片底部 */
+.mission-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accepted-count {
+  font-size: 0.85rem;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.accept-btn {
+  background: linear-gradient(90deg, #1890ff, #69c0ff);
+  border: none;
+  border-radius: 16px;
+  padding: 4px 12px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.accept-btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.2);
+}
+
+/* 深色模式支持 */
+.dark-mode .mission-card {
+  background-color: var(--mission-card-bg);
+  border-color: var(--border-color);
+  box-shadow: var(--small-shadow);
+}
+
+.dark-mode .mission-card:hover {
+  box-shadow: var(--shadow);
+}
+
+/* 覆盖悬赏卡片的深色模式样式 */
+.dark-mode .mission-image {
+  filter: brightness(0.7);
+}
+
+.dark-mode .mission-difficulty.easy {
+  background-color: var(--mission-easy-bg);
+  color: var(--success-color);
+}
+
+.dark-mode .mission-difficulty.medium {
+  background-color: var(--mission-medium-bg);
+  color: var(--warning-color);
+}
+
+.dark-mode .mission-difficulty.hard {
+  background-color: var(--mission-hard-bg);
+  color: var(--error-color);
+}
+
+.dark-mode .mission-reward {
+  background: var(--mission-reward-bg);
+  color: var(--mission-reward-color);
+  box-shadow: 0 4px 8px rgba(250, 140, 22, 0.15);
+}
+
+.dark-mode .reward-icon,
+.dark-mode .reward-amount {
+  color: var(--mission-reward-color);
+}
+
+.dark-mode .mission-title {
+  color: var(--heading-color);
+}
+
+.dark-mode .mission-category {
+  background-color: var(--topic-tag-bg);
+  color: var(--text-color);
+}
+
+.dark-mode .mission-description {
+  color: var(--text-color);
+}
+
+.dark-mode .progress-label {
+  color: var(--light-text);
+}
+
+.dark-mode .mission-deadline {
+  color: var(--light-text);
+}
+
+.dark-mode .urgent-time {
+  color: var(--error-color);
+}
+
+.dark-mode .requestor-name {
+  color: var(--light-text);
+}
+
+.dark-mode .accepted-count {
+  color: var(--light-text);
+}
+
+.dark-mode .accept-btn {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-color-hover));
+}
+
+.dark-mode .accept-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.3);
+}
+
+/* 紧急任务样式调整 */
+.dark-mode .urgent-mission {
+  border-color: var(--error-color);
+  animation: pulse-border-dark 2s infinite;
+}
+
+@keyframes pulse-border-dark {
+  0% {
+    border-color: var(--error-color);
+  }
+  50% {
+    border-color: rgba(166, 29, 36, 0.5);
+  }
+  100% {
+    border-color: var(--error-color);
+  }
+} 

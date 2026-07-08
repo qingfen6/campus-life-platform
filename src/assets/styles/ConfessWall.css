@@ -1,0 +1,277 @@
+/**
+ * 表白墙页面样式
+ * 
+ * 包含：
+ * - 页面基本布局
+ * - 表白卡片样式
+ * - 发表表白表单样式
+ * - 交互动画效果
+ */
+
+/* 内容区域 */
+.confess-content {
+  padding: 24px;
+  overflow-y: auto;
+  min-height: calc(100vh - 64px);
+  background-color: var(--bg-color);
+}
+
+/* 标题区域 */
+.confess-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.confess-title-section {
+  max-width: 600px;
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title-icon {
+  margin-right: 12px;
+  font-size: 28px;
+  color: #ff7875;
+}
+
+.confess-subtitle {
+  color: var(--light-text);
+  font-size: 16px;
+}
+
+.confess-button {
+  background: linear-gradient(to right, #ff7875, #ff85c0);
+  border: none;
+  transition: all 0.3s;
+}
+
+.confess-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 120, 117, 0.4);
+  background: linear-gradient(to right, #ff85c0, #ff7875);
+}
+
+/* 筛选区域 */
+.confess-filter {
+  margin-bottom: 24px;
+}
+
+.confess-tabs .ant-tabs-nav {
+  margin-bottom: 16px;
+}
+
+/* 表白卡片列表 */
+.confess-list {
+  margin-bottom: 40px;
+}
+
+/* 表白卡片样式 */
+.confess-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confess-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.confess-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.confess-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.confess-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.confess-date {
+  font-size: 12px;
+}
+
+.confess-target {
+  font-size: 14px;
+  color: #eb2f96;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.confess-divider {
+  margin: 12px 0;
+}
+
+.confess-content-text {
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.confess-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.confess-tag {
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.confess-gifts {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.confess-gift {
+  font-size: 24px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.confess-gift:hover {
+  transform: scale(1.2);
+}
+
+.confess-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.confess-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--light-text);
+}
+
+.confess-action-btn:hover {
+  color: #ff85c0;
+}
+
+.confess-action-btn .liked {
+  color: #ff4d4f;
+}
+
+/* 表白表单模态框 */
+.confess-modal .ant-modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-icon {
+  color: #ff4d4f;
+  font-size: 18px;
+}
+
+.anonymous-active {
+  background-color: #fff0f6;
+  color: #eb2f96;
+  border-color: #ffadd2;
+}
+
+.dark-mode .anonymous-active {
+  background-color: #291321;
+  color: #ff85c0;
+  border-color: #eb2f96;
+}
+
+.anonymous-active:hover {
+  color: #c41d7f;
+  background-color: #ffd6e7;
+  border-color: #ff85c0;
+}
+
+.dark-mode .anonymous-active:hover {
+  background-color: #3e1929;
+  color: #ffadd2;
+  border-color: #ff85c0;
+}
+
+.form-tips {
+  padding: 12px;
+  background-color: #f9f0ff;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  color: #722ed1;
+  font-size: 14px;
+}
+
+.dark-mode .form-tips {
+  background-color: #120338;
+  color: #b37feb;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #ff7875, #ff85c0);
+  border: none;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #ff85c0, #ff7875);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 120, 117, 0.4);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .confess-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .confess-button {
+    width: 100%;
+  }
+  
+  .confess-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .confess-target {
+    align-self: flex-start;
+  }
+} 

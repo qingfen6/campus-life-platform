@@ -1,0 +1,207 @@
+.school-ranking-page {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.school-ranking-page .ant-card {
+  margin-bottom: 24px;
+}
+
+.school-ranking-page .ant-table {
+  background: #fff;
+}
+
+.school-ranking-page .ant-table-thead > tr > th {
+  background: #fafafa;
+}
+
+.school-ranking-page .ant-tag {
+  margin-right: 8px;
+}
+
+.school-ranking-page .ant-statistic-title {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.school-ranking-page .ant-statistic-content {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 24px;
+}
+
+.school-ranking-page .ant-tabs-nav {
+  margin-bottom: 16px;
+}
+
+.school-ranking-page .ant-tabs-tab {
+  padding: 12px 24px;
+}
+
+.school-ranking-page .ant-tabs-tab-active {
+  background: #e6f7ff;
+}
+
+.school-ranking-page .ant-space {
+  width: 100%;
+}
+
+.school-ranking-page .ant-select {
+  width: 100%;
+}
+
+.school-ranking-page .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.school-ranking-page .ant-modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .school-ranking-page {
+    padding: 12px;
+  }
+  
+  .school-ranking-page .ant-row {
+    margin-bottom: 12px;
+  }
+  
+  .school-ranking-page .ant-col {
+    margin-bottom: 12px;
+  }
+  
+  .school-ranking-page .ant-table {
+    overflow-x: auto;
+  }
+  
+  .school-ranking-page .ant-tabs-tab {
+    padding: 8px 16px;
+  }
+}
+
+.school-ranking-content {
+  padding: 24px;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.school-ranking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.ranking-filters {
+  display: flex;
+  align-items: center;
+}
+
+.ranking-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.rank-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rank-number {
+  font-weight: bold;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f0f2f5;
+}
+
+.rank-1 {
+  background-color: #f5222d;
+  color: #fff;
+}
+
+.rank-2 {
+  background-color: #fa8c16;
+  color: #fff;
+}
+
+.rank-3 {
+  background-color: #faad14;
+  color: #fff;
+}
+
+.rank-change {
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.rank-change.up {
+  color: #f5222d;
+  background-color: #fff1f0;
+}
+
+.rank-change.down {
+  color: #52c41a;
+  background-color: #f6ffed;
+}
+
+.rank-change.same {
+  color: #8c8c8c;
+  background-color: #f5f5f5;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .school-ranking-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ranking-filters {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ranking-filters .ant-select,
+  .ranking-filters .ant-input {
+    width: 100% !important;
+  }
+}
+
+/* 暗色模式 */
+.dark-mode .school-ranking-content {
+  background-color: #141414;
+}
+
+.dark-mode .ranking-card {
+  background: #1f1f1f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .rank-number {
+  background-color: #262626;
+  color: #fff;
+}
+
+.dark-mode .rank-change.up {
+  background-color: #2a1f1f;
+}
+
+.dark-mode .rank-change.down {
+  background-color: #1f2a1f;
+}
+
+.dark-mode .rank-change.same {
+  background-color: #262626;
+  color: #8c8c8c;
+} 

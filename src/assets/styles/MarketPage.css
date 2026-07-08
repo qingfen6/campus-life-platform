@@ -1,0 +1,409 @@
+/**
+ * 校园集市页面样式
+ * 
+ * 包含：
+ * - 页面基本布局
+ * - 标题和搜索区域
+ * - 筛选区域和高级筛选抽屉
+ * - 筛选结果显示
+ * - 产品列表布局（网格和列表视图）
+ * - 推广和操作区域
+ */
+
+/* 集市页面内容区 */
+.market-content {
+  padding: 24px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 标题区域 */
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.market-title-section {
+  flex: 1;
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.title-icon {
+  margin-right: 12px;
+  font-size: 28px;
+}
+
+.market-subtitle {
+  margin-top: 4px;
+  color: #666;
+  font-size: 16px;
+}
+
+.market-promotion {
+  width: 300px;
+  margin-left: 24px;
+}
+
+.promo-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.promo-text {
+  padding: 16px;
+  flex: 1;
+}
+
+.promo-text h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #ff4d4f;
+}
+
+.promo-text p {
+  margin-bottom: 12px;
+  color: #666;
+}
+
+.promo-image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.promo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 搜索栏 */
+.market-search {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px;
+}
+
+.add-product-btn {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.add-product-btn:hover, 
+.add-product-btn:focus {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}
+
+.promo-button {
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.promo-button:hover, 
+.promo-button:focus {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}
+
+/* 图片上传样式 */
+.upload-list-inline .ant-upload-list-item {
+  float: left;
+  width: 200px;
+  margin-right: 8px;
+}
+
+.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+  float: right;
+}
+
+/* 产品模态框样式 */
+.product-modal .ant-modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.dark-mode .add-product-btn,
+.dark-mode .promo-button {
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.dark-mode .add-product-btn:hover, 
+.dark-mode .add-product-btn:focus,
+.dark-mode .promo-button:hover, 
+.dark-mode .promo-button:focus {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}
+
+.market-tabs {
+  margin-bottom: 16px;
+}
+
+.product-tab-bar .ant-tabs-nav {
+  margin-bottom: 0;
+}
+
+.product-tab-bar .ant-tabs-tab {
+  padding: 8px 16px;
+  transition: all 0.3s;
+}
+
+.product-tab-bar .ant-tabs-tab:hover {
+  color: #ff4d4f;
+}
+
+.product-tab-bar .ant-tabs-tab-active {
+  background-color: #fff;
+  border-radius: 4px 4px 0 0;
+}
+
+.product-tab-bar .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #ff4d4f;
+  font-weight: 500;
+}
+
+.category-count {
+  margin-left: 4px;
+  font-size: 12px;
+  color: #999;
+  font-weight: normal;
+}
+
+.market-filter-container {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.market-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  margin-right: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.filter-select {
+  margin-right: 24px;
+}
+
+.ml-2 {
+  margin-left: 16px;
+}
+
+.market-list {
+  min-height: 200px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #ff4d4f;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-products {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.empty-image {
+  margin-bottom: 16px;
+}
+
+.empty-image img {
+  width: 120px;
+  height: 120px;
+  opacity: 0.5;
+}
+
+.pagination-container {
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.form-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-btn {
+  margin-right: 8px;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.modal-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .market-header {
+    flex-direction: column;
+  }
+  
+  .market-promotion {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 16px;
+  }
+  
+  .market-filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-select {
+    margin-bottom: 12px;
+    width: 100% !important;
+  }
+  
+  .filter-label {
+    margin-bottom: 4px;
+  }
+  
+  .ml-2 {
+    margin-left: 0;
+  }
+}
+
+/* 深色模式支持 */
+.dark-mode .market-content {
+  background-color: var(--market-bg);
+}
+
+.dark-mode .market-header {
+  border-bottom-color: var(--border-color);
+}
+
+.dark-mode .title-icon {
+  color: var(--market-price-color);
+}
+
+.dark-mode .market-subtitle {
+  color: var(--light-text);
+}
+
+.dark-mode .market-filter {
+  background-color: var(--market-filter-bg);
+  border-color: var(--border-color);
+  box-shadow: var(--small-shadow);
+}
+
+.dark-mode .filter-label {
+  color: var(--text-color);
+}
+
+.dark-mode .empty-container {
+  background-color: var(--card-bg);
+  box-shadow: var(--small-shadow);
+}
+
+/* 覆盖集市卡片的深色模式样式 */
+.dark-mode .market-card {
+  background-color: var(--market-card-bg);
+  border-color: var(--border-color);
+}
+
+.dark-mode .market-card .market-card-title {
+  color: var(--heading-color);
+}
+
+.dark-mode .market-card .price {
+  color: var(--market-price-color);
+}
+
+.dark-mode .market-card .original-price {
+  color: var(--light-text);
+}
+
+.dark-mode .market-card .discount-badge {
+  background-color: var(--market-discount-bg);
+  color: var(--market-price-color);
+}
+
+.dark-mode .market-card .condition {
+  color: var(--light-text);
+}
+
+.dark-mode .market-card .tag {
+  background-color: var(--topic-tag-bg);
+  border-color: var(--topic-tag-border);
+  color: var(--text-color);
+}
+
+.dark-mode .filter-drawer .drawer-section {
+  border-color: var(--border-color);
+}
+
+.dark-mode .filter-drawer .condition-radio {
+  color: var(--text-color);
+}
+
+.dark-mode .filter-drawer .drawer-footer {
+  background-color: var(--card-bg);
+  border-top-color: var(--border-color);
+}
+
+.dark-mode .bargain-drawer .bargain-product {
+  background-color: var(--item-hover-bg);
+}
+
+.dark-mode .bargain-drawer .bargain-range {
+  color: var(--light-text);
+} 

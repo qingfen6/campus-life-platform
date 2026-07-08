@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园动态 | UniPulse</title>
+    <style>
+        :root {
+            --primary: #7B61FF;
+            --background: #0F0F0F;
+            --card-bg: #1E1E1E;
+            --text: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui;
+            background: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 导航栏 */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--card-bg);
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        /* 动态发布区 */
+        .post-box {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .post-input {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.1rem;
+            min-height: 100px;
+        }
+
+        /* 动态卡片 */
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s;
+        }
+        .post-card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* 互动按钮 */
+        .interaction-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .icon-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .icon-btn:hover {
+            color: var(--primary);
+        }
+
+        /* 新增图片瀑布流布局 */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 0 5%;
+        }
+
+        /* 图片卡片样式 */
+        .photo-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 多图排列 */
+        .photo-grid {
+            display: grid;
+            gap: 2px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+
+        /* 图片样式 */
+        .post-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <h1>UniPulse</h1>
+        <button class="post-btn">+ 发布动态</button>
+    </nav>
+
+    <main>
+        <section class="post-box">
+            <textarea 
+                class="post-input" 
+                placeholder="分享你的校园新鲜事..."
+            ></textarea>
+            <div class="interaction-buttons">
+                <button class="icon-btn">
+                    <span>📷</span> 图片
+                </button>
+                <button class="icon-btn">
+                    <span>😀</span> 表情
+                </button>
+                <button style="margin-left: auto; background: var(--primary); 
+                             padding: 8px 20px; border-radius: 20px;">
+                    发布
+                </button>
+            </div>
+        </section>
+
+        <!-- 修改动态展示区 -->
+        <main class="posts-grid">
+            <!-- 单图示例 -->
+            <article class="photo-card">
+                <img src="post-demo1.jpg" class="post-image">
+                <div style="padding: 1rem">
+                    <div class="interaction-buttons">
+                        <button class="icon-btn">❤️ 326</button>
+                        <button class="icon-btn">💬 45</button>
+                    </div>
+                    <p style="margin: 0.5rem 0">实验楼顶的绝美晚霞🌇 #校园摄影</p>
+                </div>
+            </article>
+
+            <!-- 多图示例 -->
+            <article class="photo-card">
+                <div class="photo-grid">
+                    <img src="post-demo2.jpg" style="height: 200px">
+                    <img src="post-demo3.jpg" style="height: 200px">
+                    <img src="post-demo4.jpg" style="height: 200px">
+                </div>
+                <div style="padding: 1rem">
+                    <p>社团招新现场直击！🎉 今年多了好多有趣社团</p>
+                    <small>📸 共9张图片</small>
+                </div>
+            </article>
+        </main>
+    </main>
+</body>
+</html>

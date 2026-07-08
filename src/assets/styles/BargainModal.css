@@ -1,0 +1,121 @@
+.bargain-modal .ant-modal-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.bargain-modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.bargain-icon {
+  margin-right: 8px;
+  color: #ff4d4f;
+  font-size: 18px;
+}
+
+.bargain-product-info {
+  display: flex;
+  margin-top: 16px;
+}
+
+.bargain-product-image {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.bargain-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bargain-product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bargain-product-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bargain-product-price {
+  margin-bottom: 8px;
+}
+
+.bargain-product-price .current-price {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ff4d4f;
+  margin-right: 10px;
+}
+
+.bargain-product-price .original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 14px;
+}
+
+.bargain-product-location {
+  color: #666;
+  font-size: 14px;
+}
+
+.price-slider {
+  margin-bottom: 20px;
+}
+
+.price-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #999;
+}
+
+.bargain-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.bargain-tips {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.bargain-tips h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.bargain-tips ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.bargain-tips li {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.bargain-tips li:last-child {
+  margin-bottom: 0;
+} 

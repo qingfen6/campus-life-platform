@@ -1,0 +1,182 @@
+/**
+ * 计算机学院页面样式
+ * 
+ * 包含：
+ * - 页面布局样式
+ * - 标题样式
+ * - 标签页样式
+ * - 可编辑组件样式
+ * - 编辑模式样式
+ * - 组件设置抽屉样式
+ */
+
+/* 页面基础样式 */
+.college-content {
+  padding: 24px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+/* 页面标题样式 */
+.college-header {
+  margin-bottom: 32px;
+  text-align: center;
+  position: relative;
+}
+
+.college-subtitle {
+  color: var(--light-text);
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+/* 管理员编辑控件 */
+.admin-controls {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  gap: 12px;
+}
+
+/* 页面主体内容 */
+.college-body {
+  position: relative;
+}
+
+/* 标签页样式 */
+.college-tabs {
+  margin-bottom: 24px;
+}
+
+.college-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+}
+
+.college-tabs .ant-tabs-tab {
+  padding: 8px 16px;
+}
+
+.college-tabs .ant-tabs-tab-active {
+  font-weight: bold;
+}
+
+.college-tabs .ant-tabs-ink-bar {
+  background-color: var(--primary-color);
+}
+
+/* 组件容器 */
+.component-wrapper {
+  position: relative;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  box-shadow: var(--small-shadow);
+  padding: 24px;
+  transition: all 0.3s;
+}
+
+.component-wrapper:hover {
+  box-shadow: var(--shadow);
+}
+
+/* 编辑模式样式 */
+.component-wrapper.edit-mode {
+  border: 2px dashed var(--primary-color);
+  padding-top: 48px;
+}
+
+/* 组件编辑控件 */
+.component-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: var(--small-shadow);
+}
+
+.order-controls {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4px;
+}
+
+.order-controls button {
+  padding: 0 4px;
+  height: 18px;
+  line-height: 1;
+  font-size: 12px;
+}
+
+/* 拖拽手柄 */
+.drag-handle {
+  cursor: move;
+}
+
+/* 组件设置抽屉 */
+.component-settings {
+  padding: 0 16px;
+}
+
+.component-setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.component-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.order-display {
+  font-size: 12px;
+  color: var(--light-text);
+}
+
+.drawer-footer {
+  margin-top: 24px;
+  text-align: right;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .college-header {
+    margin-bottom: 24px;
+  }
+  
+  .admin-controls {
+    position: static;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .component-wrapper {
+    padding: 16px;
+  }
+  
+  .component-wrapper.edit-mode {
+    padding-top: 40px;
+  }
+}
+
+/* 暗黑模式调整 */
+.dark-mode .component-controls {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .component-wrapper {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .component-wrapper.edit-mode {
+  border-color: #1890ff;
+} 

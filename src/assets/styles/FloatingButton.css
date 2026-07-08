@@ -1,0 +1,89 @@
+/**
+ * 浮动按钮样式
+ */
+
+.floating-button-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+/* 主按钮样式 - 提高特异性 */
+.ant-btn-primary.ant-btn-circle.floating-button {
+  width: 56px !important; /* 使用 !important 强制覆盖 */
+  height: 56px !important; /* 使用 !important 强制覆盖 */
+  min-width: 56px !important; /* 覆盖 min-width */
+  font-size: 24px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Popover 样式调整 */
+.fab-popover .ant-popover-inner {
+  background-color: transparent; /* 使 Popover 背景透明 */
+  box-shadow: none; /* 移除 Popover 阴影 */
+}
+
+.fab-popover .ant-popover-inner-content {
+  padding: 0; /* 移除 Popover 内边距 */
+}
+
+.fab-popover .ant-popover-arrow {
+  display: none; /* 隐藏 Popover 箭头 */
+}
+
+/* 菜单容器样式 */
+.fab-menu {
+  display: flex;
+  flex-direction: column-reverse; /* 垂直向上堆叠 */
+  gap: 16px; /* 菜单按钮之间的间距 */
+  align-items: center; /* 水平居中 */
+  /* 在 Popover 透明的情况下，可能不需要额外样式 */
+}
+
+/* 菜单项按钮样式 */
+.fab-menu-item {
+  width: 56px !important; /* 使用 !important 强制覆盖 */
+  height: 56px !important; /* 使用 !important 强制覆盖 */
+  min-width: 56px !important; /* 覆盖 min-width */
+  font-size: 20px; /* 菜单图标大小 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* 确保是圆形 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 菜单项阴影 */
+  background-color: #fff; /* 菜单项背景色 */
+  color: rgba(0, 0, 0, 0.65); /* 菜单项图标颜色 */
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 添加弹出动画效果 */
+}
+
+.fab-menu-item:hover {
+  transform: scale(1.1); /* 悬停放大效果 */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 可以为不同按钮设置不同背景色 */
+.post-fab { background-color: #f0f0f0; }
+.product-fab { background-color: #e6f7ff; }
+.mission-fab { background-color: #fffbe6; }
+.refresh-fab { background-color: #f6ffed; }
+
+/* 深色模式适配 (如果需要) */
+/* .dark-mode .fab-menu-item { ... } */
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .floating-button-container {
+    bottom: 20px;
+    right: 20px;
+  }
+  .floating-button,
+  .fab-menu-item {
+    width: 48px; /* 移动端稍小尺寸 */
+    height: 48px;
+    font-size: 20px;
+  }
+  .fab-menu {
+    gap: 12px; /* 移动端稍小间距 */
+  }
+} 

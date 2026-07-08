@@ -1,0 +1,218 @@
+.mission-content {
+  padding: 24px;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+  background-color: var(--bg-color);
+  transition: var(--transition);
+}
+
+/* 页面头部 */
+.mission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mission-title-section {
+  max-width: 70%;
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.title-icon {
+  font-size: 28px;
+  color: var(--warning-color, #fa8c16);
+}
+
+.mission-subtitle {
+  color: var(--light-text);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.mission-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.publish-mission-btn {
+  height: 42px;
+  border-radius: 21px;
+  padding: 0 24px;
+  background: linear-gradient(90deg, var(--warning-color, #fa8c16), var(--warning-light, #ffc53d));
+  border: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 12px rgba(250, 140, 22, 0.2);
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.publish-mission-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(250, 140, 22, 0.3);
+}
+
+/* 标签与筛选 */
+.mission-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mission-tabs {
+  flex-grow: 1;
+}
+
+.mission-tab-bar .ant-tabs-nav {
+  margin-bottom: 0;
+}
+
+.mission-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--card-bg);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.filter-select {
+  border-radius: 8px;
+}
+
+/* 任务列表 */
+.mission-list {
+  margin-bottom: 40px;
+}
+
+/* 发布任务模态框 */
+.mission-modal .ant-modal-content {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.modal-icon {
+  color: var(--warning-color, #fa8c16);
+  font-size: 20px;
+}
+
+.category-radio .ant-radio-button-wrapper,
+.difficulty-radio .ant-radio-button-wrapper {
+  border-radius: 16px;
+  margin-right: 8px;
+  overflow: hidden;
+}
+
+.category-radio .ant-radio-button-wrapper:first-child,
+.difficulty-radio .ant-radio-button-wrapper:first-child {
+  border-radius: 16px;
+}
+
+.category-radio .ant-radio-button-wrapper:last-child,
+.difficulty-radio .ant-radio-button-wrapper:last-child {
+  border-radius: 16px;
+}
+
+.category-radio .ant-radio-button-wrapper-checked,
+.difficulty-radio .ant-radio-button-wrapper-checked {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color, #40a9ff));
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.cancel-btn,
+.submit-btn {
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 20px;
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, var(--warning-color, #fa8c16), var(--warning-light, #ffc53d));
+  border: none;
+  color: #fff;
+}
+
+/* 深色模式调整 */
+.dark-mode .mission-content {
+  background-color: var(--mission-bg, #141414);
+}
+
+.dark-mode .mission-filter {
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.dark-mode .title-icon {
+  color: var(--warning-color, #fa8c16);
+}
+
+.dark-mode .publish-mission-btn,
+.dark-mode .submit-btn {
+  background: linear-gradient(90deg, var(--warning-color, #fa8c16), var(--warning-light, #ffc53d));
+  color: #000;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .mission-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mission-title-section {
+    max-width: 100%;
+  }
+  
+  .mission-filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mission-tabs {
+    width: 100%;
+  }
+  
+  .mission-filter {
+    margin-top: 16px;
+  }
+} 

@@ -1,0 +1,361 @@
+/**
+ * 校园集市商品卡片样式
+ * 
+ * 包含：
+ * - 卡片基础样式和悬停效果
+ * - 网格视图和列表视图样式
+ * - 折扣标签和状态标签样式
+ * - 价格、标题、卖家信息样式
+ * - 行动按钮（收藏、咨询、购买、砍价）样式
+ */
+
+/* 卡片基础样式 */
+.market-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.market-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 图片容器 */
+.market-card-img-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.market-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.market-card:hover .market-card-img {
+  transform: scale(1.05);
+}
+
+/* 折扣标签 */
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #ff6b6b, #ff5e62);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.5);
+  line-height: 1;
+  animation: pulse 2s infinite;
+  z-index: 2;
+}
+
+.discount-badge span:first-child {
+  font-size: 1rem;
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 卡片内容区域 */
+.market-card-content {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 200px);
+}
+
+/* 标签样式 */
+.market-card-tags {
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.product-tag {
+  margin-right: 0;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+/* 商品标题 */
+.market-card-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 价格样式 */
+.market-card-price {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.current-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff4d4f;
+}
+
+.original-price {
+  margin-left: 8px;
+  font-size: 0.9rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* 卖家信息 */
+.market-card-seller {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.seller-avatar {
+  margin-right: 5px;
+}
+
+.seller-name {
+  font-size: 0.85rem;
+  color: #666;
+  margin-right: 8px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.seller-rating {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #faad14;
+}
+
+.rating-icon {
+  font-size: 0.8rem;
+  margin-right: 2px;
+}
+
+/* 元数据（时间和位置） */
+.market-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+/* 操作按钮区域 */
+.market-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed #f0f0f0;
+}
+
+.action-button {
+  border: none;
+  padding: 0 8px;
+}
+
+.like-button {
+  color: #999;
+}
+
+.liked {
+  color: #ff4d4f;
+}
+
+.buy-button {
+  background: linear-gradient(to right, #ff7a45, #ff4d4f);
+  border-color: #ff4d4f;
+  transition: all 0.3s ease;
+}
+
+.buy-button:hover {
+  background: linear-gradient(to right, #ff4d4f, #ff7a45);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(255, 77, 79, 0.4);
+}
+
+.bargain-button {
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+  transition: all 0.3s ease;
+}
+
+.bargain-button:hover {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+/* 列表视图样式 */
+.market-card.list-view {
+  display: flex;
+  flex-direction: row;
+  height: 160px;
+}
+
+.list-image-container {
+  position: relative;
+  width: 160px;
+  min-width: 160px;
+  height: 160px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.list-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.market-card.list-view:hover .list-image {
+  transform: scale(1.05);
+}
+
+.market-card.list-view .market-card-content {
+  height: 100%;
+  flex: 1;
+  padding: 12px 16px;
+}
+
+.market-card.list-view .market-card-title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.market-card.list-view .market-card-price {
+  margin-bottom: 12px;
+}
+
+.market-card.list-view .current-price {
+  font-size: 1.3rem;
+}
+
+.market-card.list-view .market-card-actions {
+  margin-top: auto;
+}
+
+/* 砍价抽屉样式 */
+.bargain-drawer .bargain-product {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.bargain-drawer .bargain-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+
+.bargain-drawer .bargain-info {
+  flex: 1;
+}
+
+.bargain-drawer .bargain-info h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.bargain-drawer .price-info {
+  color: #666;
+  font-size: 14px;
+}
+
+.bargain-drawer .bargain-range {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.bargain-drawer .bargain-slider {
+  margin: 24px 0;
+}
+
+.bargain-drawer .bargain-saving {
+  text-align: right;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.bargain-drawer .saving-amount {
+  color: #ff4d4f;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.bargain-drawer .bargain-tips {
+  background-color: #fff8e6;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 16px 0;
+  color: #d48806;
+  font-size: 14px;
+}
+
+.bargain-drawer .bargain-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+/* 响应式调整 */
+@media (max-width: 576px) {
+  .market-card.list-view {
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .list-image-container {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .market-card.list-view .market-card-content {
+    padding: 12px;
+  }
+} 

@@ -1,0 +1,167 @@
+/* 全局样式变量 */
+:root {
+  --primary-color: #1890ff;
+  --primary-color-hover: #40a9ff;
+  --secondary-color: #ff4d4f;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #f5222d;
+  
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --text-color: #262626;
+  --light-text: #8c8c8c;
+  --border-color: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* 深色模式变量 */
+.dark-mode {
+  --primary-color: #177ddc;
+  --primary-color-hover: #3690db;
+  --secondary-color: #ff7875;
+  --success-color: #73d13d;
+  --warning-color: #ffc53d;
+  --error-color: #ff7875;
+  
+  --bg-color: #141414;
+  --card-bg: #1f1f1f;
+  --text-color: #ffffff;
+  --light-text: #a8a8a8;
+  --border-color: #303030;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 应用容器样式 */
+.app-container {
+  min-height: 100vh;
+}
+
+/* 深色模式下的文本和背景调整 */
+.dark-mode .ant-typography,
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode .ant-list-item-meta-title {
+  color: var(--text-color);
+}
+
+.dark-mode .shortcut-item span,
+.dark-mode .section-title,
+.dark-mode .ant-card-head-title,
+.dark-mode .ant-card-extra {
+  color: var(--text-color) !important;
+}
+
+.dark-mode .ant-list-item-meta-description,
+.dark-mode .ant-card-meta-description {
+  color: var(--light-text);
+}
+
+.dark-mode .ant-card,
+.dark-mode .ant-modal-content,
+.dark-mode .ant-drawer-content {
+  background-color: var(--card-bg);
+}
+
+.dark-mode .ant-layout {
+  background-color: var(--bg-color);
+}
+
+.dark-mode .post-card,
+.dark-mode .market-card,
+.dark-mode .mission-card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+/* 深色模式下标签样式调整 */
+.dark-mode .ant-tag {
+  border-color: #303030;
+}
+
+.dark-mode .ant-tag-blue {
+  background: #111d2c;
+  border-color: #15395b;
+  color: #a6d8ff;
+}
+
+.dark-mode .ant-tag-volcano {
+  background: #2b1611;
+  border-color: #592716;
+  color: #ffbb96;
+}
+
+.dark-mode .ant-tag-green {
+  background: #162312;
+  border-color: #274916;
+  color: #b7eb8f;
+}
+
+/* 聊天室覆盖层 */
+.chat-overlay {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 400px;
+  background-color: var(--card-bg);
+  border-top-right-radius: 12px;
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.chat-overlay.visible {
+  transform: translateY(0);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.chat-content {
+  padding: 16px;
+  height: calc(100% - 110px);
+  overflow-y: auto;
+}
+
+.chat-footer {
+  display: flex;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.chat-input {
+  flex: 1;
+  margin-right: 8px;
+}
+
+/* 按钮特殊样式 */
+.btn-confess-wall {
+  color: #eb2f96;
+  background-color: #fff0f6;
+}
+
+.dark-mode .btn-confess-wall {
+  color: #ff85c0;
+  background-color: #291321;
+} 

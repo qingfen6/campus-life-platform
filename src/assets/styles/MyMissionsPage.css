@@ -1,0 +1,54 @@
+.my-missions-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.missions-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.missions-card .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.missions-card .ant-card-head-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.missions-card .ant-table-thead > tr > th {
+  background-color: #fafafa;
+  font-weight: 600;
+}
+
+.empty-missions {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.empty-missions img {
+  max-width: 200px;
+  margin-bottom: 24px;
+}
+
+.status-tag {
+  text-align: center;
+  min-width: 60px;
+}
+
+/* 适配深色模式 */
+.dark-mode .missions-card {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .missions-card .ant-card-head {
+  border-color: #303030;
+}
+
+.dark-mode .missions-card .ant-table-thead > tr > th {
+  background-color: #141414;
+}

@@ -1,0 +1,52 @@
+// 全局布局样式
+@app-header: {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 64px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    .logo {
+      height: 40px;
+    }
+
+    .search-bar {
+      width: 400px;
+    }
+  }
+
+  .nav-buttons {
+    .nav-icon {
+      font-size: 18px;
+      color: @text-color-secondary;
+    }
+  }
+};
+
+// 响应式处理
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 12px;
+    
+    .header-left {
+      .search-bar {
+        width: 200px;
+      }
+    }
+    
+    .nav-buttons {
+      display: none;
+    }
+  }
+  
+  .app-sidebar {
+    display: none;
+  }
+} 

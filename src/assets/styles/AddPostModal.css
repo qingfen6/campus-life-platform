@@ -1,0 +1,157 @@
+/**
+ * 动态发布模态框样式
+ */
+
+.post-modal .modal-title {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.post-modal .modal-icon {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #1890ff;
+}
+
+.post-modal .post-textarea {
+  border-radius: 8px;
+  resize: none;
+  min-height: 100px;
+  font-size: 16px;
+  padding: 12px;
+  border-color: #d9d9d9;
+  transition: all 0.3s;
+}
+
+.post-modal .post-textarea:focus {
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  border-color: #40a9ff;
+}
+
+.post-modal .content-length-indicator {
+  text-align: right;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: #999;
+}
+
+.post-modal .content-length-warning {
+  color: #ff4d4f;
+}
+
+.post-modal .ant-upload-list-picture-card-container {
+  width: 104px;
+  height: 104px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.post-modal .ant-upload.ant-upload-select-picture-card {
+  width: 104px;
+  height: 104px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.post-modal .preview-modal .ant-modal-content {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.post-modal .post-options {
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.post-modal .inline-form-item {
+  margin-bottom: 0;
+}
+
+.post-modal .post-additional {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-modal .post-tags-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.post-modal .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-modal .tag-plus {
+  cursor: pointer;
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+  border-color: #1890ff;
+}
+
+.post-modal .location-input {
+  width: auto;
+  max-width: 200px;
+}
+
+.post-modal .location-input .anticon {
+  color: #1890ff;
+}
+
+.post-modal .form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.post-modal .cancel-btn {
+  margin-right: 12px;
+}
+
+.post-modal .submit-btn {
+  min-width: 100px;
+}
+
+/* 深色模式适配 */
+.dark-mode .post-modal .post-textarea {
+  background-color: #141414;
+  border-color: #434343;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-mode .post-modal .post-textarea:focus {
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  border-color: #177ddc;
+}
+
+.dark-mode .post-modal .content-length-indicator {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dark-mode .post-modal .tag-plus {
+  background: rgba(24, 144, 255, 0.15);
+  border-color: #177ddc;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .post-modal .post-additional {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .post-modal .location-input {
+    max-width: 100%;
+    width: 100%;
+  }
+} 
