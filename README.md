@@ -183,6 +183,7 @@ NODE_ENV=development
 - [系统架构说明](docs/ARCHITECTURE.md)
 - [接口概览](docs/API_OVERVIEW.md)
 - [面试讲解指南](docs/INTERVIEW_GUIDE.md)
+- [截图与视觉资料](docs/SCREENSHOTS.md)
 
 ## 当前状态
 
