@@ -44,7 +44,15 @@
     "eject": "react-scripts eject",
     "server": "nodemon server/server.js",
     "dev": "concurrently \"npm run server\" \"npm start\"",
-    "start:all": "node server/scripts/start-all.js"
+    "start:all": "node server/scripts/start-all.js",
+    "install:all": "npm install && npm --prefix server install && npm --prefix admin-server install && npm --prefix admin-client install",
+    "dev:user:api": "npm --prefix server run dev",
+    "dev:user:web": "npm start",
+    "dev:admin:api": "npm --prefix admin-server run dev",
+    "dev:admin:web": "npm --prefix admin-client start",
+    "dev:services": "concurrently \"npm run dev:user:api\" \"npm run dev:admin:api\"",
+    "dev:web": "concurrently \"npm run dev:user:web\" \"npm run dev:admin:web\"",
+    "build:all": "npm run build && npm --prefix admin-client run build"
   },
   "eslintConfig": {
     "extends": [
